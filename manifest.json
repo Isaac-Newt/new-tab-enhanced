@@ -1,0 +1,22 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "note-tab@wildsky.cc",
+       "strict_min_version": "54.0a1"
+    }
+  },
+
+  "manifest_version": 2,
+  "name": "New Tab Enhanced",
+  "version": "1.0",
+
+  "description": "A better new tab experience",
+
+  "permissions": [
+    "storage", "identity"
+  ],
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
