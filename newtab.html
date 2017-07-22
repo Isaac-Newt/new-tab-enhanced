@@ -7,13 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="links">
-    <a href="http://wttr.in/">Weather</a>
-    <a href="https://duckduckgo.com">Search</a>
-    <a href="#site-list">Top Sites</a>
+  <div id="wrapper">
+    <div id="links">
+      <a href="http://wttr.in/">Weather</a>
+      <a href="https://duckduckgo.com">Search</a>
+      <a href="#site-list">Top Sites</a>
+    </div>
+    <textarea id="note-content" placeholder="write some notes..."></textarea>
   </div>
-  <textarea id="note-content" placeholder="write some notes..."></textarea>
-  <div id="site-list"></div>
+  <div id="topsites">
+    <p id="site-list-header">Top Sites</p>
+    <div id="divider"></div>
+    <div id="site-list"></div>
+  </div>
 </body>
 </html>
 
