@@ -2,47 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Write Notes</title>
+  <title>New Tab</title>
   <script src="./newtab.js"></script>
-  <style>
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  #note-content {
-    box-sizing: border-box;
-    font-size: 18px;
-    line-height: 1.75rem;
-    padding: 1em;
-    min-height: 70vh;
-    height: auto;
-    margin: 4rem 15%;
-    width: 70%;
-    box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
-    background: #eadfc0;
-    border: 1px solid rgba(66, 79, 90, 0.5);
-  }
-  #links {
-    min-height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #424F5A;
-  }
-  a {
-    display: flex;
-    text-decoration: none;
-    font-weight: normal;
-    margin: 8px 16px;
-    font-size: 24px;
-    color: white;
-    font-family: "Fira Sans";
-  }
-  a:hover {
-    border-bottom: 2px white solid;
-    transition: .15s;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="links">
@@ -53,6 +15,10 @@
     <a href="https://www.youtube.com">YouTube</a>
   </div>
   <textarea id="note-content" placeholder="write some notes..."></textarea>
+  <!--<div>
+    <img src="http://wttr.in/MyLocation.png?0"></img>
+  </div>-->
+  <div id="site-list"></div>
 </body>
 </html>
 

@@ -13,7 +13,7 @@
   "description": "A better new tab experience",
 
   "permissions": [
-    "storage", "identity"
+    "storage", "identity", "topSites"
   ],
 
   "chrome_url_overrides": {
