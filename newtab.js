@@ -6,6 +6,8 @@ browser.topSites.get()
       div.innerText = 'No sites returned from the topSites API.';
       return;
     }
+    
+    sites.splice(12);
 
     let ul = document.createElement('ul');
     ul.className = 'list-group';
@@ -21,6 +23,7 @@ browser.topSites.get()
 
     div.appendChild(ul);
   });
+
 
 var VERSION = 1;
 

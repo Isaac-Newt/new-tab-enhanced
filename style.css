@@ -32,10 +32,22 @@ a {
   font-family: "Fira Sans";
 }
 a:hover {
-  border-bottom: 2px white solid;
+  border-bottom: 1px white solid;
   transition: .15s;
 }
 
 #site-list {
-  background: black;
+  background: #424F5A;
+  display: flex;
+  justify-content: center;
+}
+
+.list-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.list-group-item {
+  display: flex;
 }
