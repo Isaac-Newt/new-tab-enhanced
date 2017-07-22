@@ -19,13 +19,14 @@ ToDo:
 
 * [X] Add shortcuts along top (weather, search, etc)
 
-* [ ] Use most visited API to populate links 
+* [X] Use most visited API to populate links 
 
 * [X] Add search engine box from about:newtab and relevant styling 
 (Added search link)
 
-* [ ] Add settings page to choose color scheme (light, dark, greyscale, 
-colorful)
+* [ ] Publish on addons.mozilla.org
+
+* [ ] Add settings page to choose color scheme (light, dark, greyscale, colorful) and location for weather
 
 
 

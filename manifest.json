@@ -8,9 +8,13 @@
 
   "manifest_version": 2,
   "name": "New Tab Enhanced",
-  "version": "1.0.0",
+  "version": "1.0.2",
 
   "description": "A better new tab experience",
+
+  "icons": {
+    "48": "new-tab-enhanced.png"
+  },
 
   "permissions": [
     "storage", "identity", "topSites"
