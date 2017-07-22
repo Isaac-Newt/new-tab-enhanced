@@ -15,13 +15,14 @@ This addon will transform Firefox's new tab page into a notebook, links to weath
 
 ### ToDo:
 
-[x] Add shortcuts along top (weather, search, etc)
+[X] Add shortcuts along top (weather, search, etc)
 
-[] Use most visited API to populate links 
+[ ] Use most visited API to populate links 
 
 [-] Add search engine box from about:newtab and relevant styling (Added search link)
 
-[] Add settings page to choose color scheme (light, dark, greyscale, colorful)
+[ ] Add settings page to choose color scheme (light, dark, greyscale, 
+colorful)
 
 
 
