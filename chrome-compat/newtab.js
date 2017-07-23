@@ -1,3 +1,8 @@
+function onAnchorClick(event) {
+  chrome.tabs.create({ url: event.srcElement.href });
+  return false;
+}
+
 function buildSiteList(mostVisitedURLs) {
   var popupDiv = document.getElementById('site-list');
   var ol = popupDiv.appendChild(document.createElement('ol'));
@@ -27,7 +32,7 @@ window.onload = () => {
           version: VERSION,
           content: ''
         };
-        browser.storage.sync.set(data);
+        chrome.storage.sync.set(data);
       }
 
       $textarea.value = data.content;
@@ -37,11 +42,11 @@ window.onload = () => {
 
   // when user writing
   $textarea.addEventListener('keyup', event => {
-    browser.storage.sync.set({ content: event.target.value });
+    chrome.storage.sync.set({ content: event.target.value });
   });
 
   // when actived window or tab changed
-  browser.tabs.onActivated.addListener(initNote);
-  browser.windows.onFocusChanged.addListener(initNote);
+  chrome.tabs.onActivated.addListener(initNote);
+  chrome.windows.onFocusChanged.addListener(initNote);
 };
 
