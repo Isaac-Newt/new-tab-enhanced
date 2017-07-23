@@ -1,5 +1,7 @@
 # Enhanced New Tab
 
+## Chrome compatibility branch
+
 ### An enhanced new tab experience, for Firefox 54+
 
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
