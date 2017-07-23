@@ -32,9 +32,6 @@ body {
 
 #links>a {
   font-size: 32px;
-}
-
-a {
   display: flex;
   text-decoration: none;
   font-weight: normal;
@@ -43,10 +40,14 @@ a {
   font-family: "Fira Sans";
 }
 
-a:hover {
-  border-bottom: 1px white solid;
-  transition: .15s;
-}
+/*a {
+  display: flex;
+  text-decoration: none;
+  font-weight: normal;
+  margin: 8px 16px;
+  color: white;
+  font-family: "Fira Sans";
+}*/
 
 #topsites {
   background: #424F5A;
