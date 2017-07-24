@@ -2,6 +2,8 @@
 
 ### An enhanced new tab experience, for Firefox 54+ (and Chrome)
 
+### Themes-Implementation
+
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
 
 
@@ -16,11 +18,6 @@ Notes:
 
 ToDo:
 ---
-
-* [X] Add search engine box from about:newtab and relevant styling
-(Added search link)
-
-* [X] Publish on addons.mozilla.org
 
 * [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
 
