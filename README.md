@@ -1,8 +1,8 @@
 # Enhanced New Tab
 
-### An enhanced new tab experience, for Firefox 54+ (and Chrome)
-
 ### Themes-Implementation
+
+### An enhanced new tab experience, for Firefox 54+ (and Chrome)
 
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
 
