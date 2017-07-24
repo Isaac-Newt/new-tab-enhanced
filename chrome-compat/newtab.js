@@ -23,32 +23,32 @@ chrome.topSites.get(buildSiteList);
 var VERSION = 1;
 
 //notes
-window.onload = () => {
-  var $textarea = document.querySelector('#note-content');
+(function() {
 
-  var initNote = () => {
-    chrome.storage.sync.get().then( data => {
+  function _makeDelayed() {
+    var timer = 0;
+    return function(callback, ms) {
+      clearTimeout(timer);
+      timer = setTimeout(callback, ms);
+    };
+  }
 
-      if (data.version === undefined) {
-        data = {
-          version: VERSION,
-          content: ''
-        };
-        chrome.storage.sync.set(data);
-      }
-
-      $textarea.value = data.content;
+  function bindNoteHandlers() {
+    var elem = document.getElementById('note-content'),
+        saveHandler = _makeDelayed();
+    function save() {
+      chrome.storage.sync.set({'noteText': elem.value});
+    }
+    // Throttle save so that it only occurs after 1 second without a keypress.
+    elem.addEventListener('keypress', function() {
+      saveHandler(save, 1000);
     });
-  };
-  initNote();
+    elem.addEventListener('blur', save);
+    chrome.storage.sync.get('noteText', function(data) {
+      elem.value = data.noteText ? data.noteText : '';
+    });
+  }
 
-  // when user writing
-  $textarea.addEventListener('keyup', event => {
-    chrome.storage.sync.set({ content: event.target.value });
-  });
-
-  // when actived window or tab changed
-  chrome.tabs.onActivated.addListener(initNote);
-  chrome.windows.onFocusChanged.addListener(initNote);
-};
+  bindNoteHandlers();
+})();
 
