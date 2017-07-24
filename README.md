@@ -1,8 +1,6 @@
 # Enhanced New Tab
 
-## Chrome compatibility branch
-
-### An enhanced new tab experience, for Firefox 54+
+### An enhanced new tab experience, for Firefox 54+ (and Chrome)
 
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
 
@@ -19,17 +17,16 @@ Notes:
 ToDo:
 ---
 
-* [X] Add shortcuts along top (weather, search, etc)
-
-* [X] Use most visited API to populate links 
-
-* [X] Add search engine box from about:newtab and relevant styling 
+* [X] Add search engine box from about:newtab and relevant styling
 (Added search link)
 
-* [ ] Publish on addons.mozilla.org
+* [X] Publish on addons.mozilla.org
 
-* [ ] Add settings page to choose color scheme (light, dark, greyscale, colorful) and location for weather
+* [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
 
+* [ ] Custom location for weather (esp. for VPN users)
+
+* [ ] Add settings page for above settings
 
 
 Credits
@@ -43,3 +40,4 @@ Weather links to [wttr.in](https://github.com/chubin/wttr.in), an open-source we
 
 Search links to [DuckDuckGo](https://duckduckgo.com), a search engine that doesn't track you.
 
+Persistant notes on Chrome made possible with some code from [Sweenzor's "New Tab Notepad"](https://github.com/sweenzor/new-tab-notepad)
