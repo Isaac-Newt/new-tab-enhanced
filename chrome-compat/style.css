@@ -40,15 +40,6 @@ body {
   font-family: "Fira Sans";
 }
 
-/*a {
-  display: flex;
-  text-decoration: none;
-  font-weight: normal;
-  margin: 8px 16px;
-  color: white;
-  font-family: "Fira Sans";
-}*/
-
 #topsites {
   background: #424F5A;
   box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
@@ -96,4 +87,9 @@ li>a {
   margin: 8px 16px;
   color: white;
   font-family: "Fira Sans";
+}
+
+a:hover {
+  border-bottom: 1px solid white;
+  transition: .15s;
 }
