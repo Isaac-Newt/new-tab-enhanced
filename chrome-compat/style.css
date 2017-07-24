@@ -76,14 +76,24 @@ body {
   justify-content: center;
 }
 
-.list-group {
+#site-list>ol {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   padding: 0;
 }
 
-.list-group-item {
+li {
   display: flex;
   font-size: 24px;
+  padding: 12px;
+}
+
+li>a {
+  display: flex;
+  text-decoration: none;
+  font-weight: normal;
+  margin: 8px 16px;
+  color: white;
+  font-family: "Fira Sans";
 }

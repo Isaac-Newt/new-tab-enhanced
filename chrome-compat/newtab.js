@@ -7,6 +7,8 @@ function buildSiteList(mostVisitedURLs) {
   var popupDiv = document.getElementById('site-list');
   var ol = popupDiv.appendChild(document.createElement('ol'));
 
+  mostVisitedURLs.splice(12);
+
   for (var i = 0; i < mostVisitedURLs.length; i++) {
     var li = ol.appendChild(document.createElement('li'));
     var a = li.appendChild(document.createElement('a'));
