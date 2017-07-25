@@ -6,7 +6,7 @@ browser.topSites.get()
       div.innerText = 'No sites returned from the topSites API.';
       return;
     }
-    
+
     sites.splice(12);
 
     let ul = document.createElement('ul');
@@ -57,3 +57,19 @@ window.onload = () => {
   browser.windows.onFocusChanged.addListener(initNote);
 };
 
+//Weather
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
+function onGot(item) {
+  var color = "";
+  if (item.color) {
+    place = item.color;
+  }
+  var weather = document.getElementById('weather');
+  weather.href += place;
+}
+
+var getting = browser.storage.local.get("color");
+getting.then(onGot, onError);
