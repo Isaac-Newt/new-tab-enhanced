@@ -1,0 +1,90 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #424F5A;
+}
+
+#wrapper {
+  min-height: 100vh;
+}
+
+#note-content {
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 1.75rem;
+  padding: 1em;
+  min-height: 70vh;
+  height: auto;
+  margin: 4rem 15%;
+  width: 70%;
+  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
+  background: #273038;
+  border: 1px solid rgba(66, 79, 90, 0.5);
+  color: white;
+}
+
+#links {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1b2126;
+  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
+}
+
+#links>a {
+  font-size: 32px;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+  font-weight: normal;
+  margin: 8px 16px;
+  color: white;
+  font-family: "Fira Sans";
+}
+
+a:hover {
+  border-bottom: 1px white solid;
+  transition: .15s;
+}
+
+#topsites {
+  background: #1b2126;
+  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
+}
+
+#site-list-header {
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: .25em;
+  font-family: "Fira Sans";
+  font-size: 36px;
+  font-weight: 400;
+}
+
+#divider {
+  height: 2px;
+  width: 20em;
+  margin: 0 auto;
+  background: white;
+}
+
+#site-list {
+  display: flex;
+  justify-content: center;
+}
+
+.list-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+.list-group-item {
+  display: flex;
+  font-size: 24px;
+}
