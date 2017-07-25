@@ -6,7 +6,7 @@ browser.topSites.get()
       div.innerText = 'No sites returned from the topSites API.';
       return;
     }
-    
+
     sites.splice(12);
 
     let ul = document.createElement('ul');
@@ -57,3 +57,20 @@ window.onload = () => {
   browser.windows.onFocusChanged.addListener(initNote);
 };
 
+//Weather Location
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
+function onGot(item) {
+  var location = "";
+  if (item.location) {
+    location = item.location;
+  }
+  var link = document.getElementById("weather");
+  link.setAttribute("href", "http://wttr.in/"+location);
+  return false;
+}
+
+var getting = browser.storage.local.get("location");
+getting.then(onGot, onError);
