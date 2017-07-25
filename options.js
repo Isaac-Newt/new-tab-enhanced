@@ -1,3 +1,4 @@
+//Weather
 function saveOptions(e) {
   e.preventDefault();
   browser.storage.local.set({
@@ -21,3 +22,5 @@ function restoreOptions() {
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
+
+//Notes
