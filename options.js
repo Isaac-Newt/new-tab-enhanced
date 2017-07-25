@@ -1,21 +1,21 @@
 function saveOptions(e) {
   e.preventDefault();
   browser.storage.local.set({
-    color: document.querySelector("#location").value
+    color: document.querySelector("#color").value
   });
 }
 
 function restoreOptions() {
 
   function setCurrentChoice(result) {
-    document.querySelector("#location").value = result.location || "";
+    document.querySelector("#color").value = result.color || "blue";
   }
 
   function onError(error) {
     console.log(`Error: ${error}`);
   }
 
-  var getting = browser.storage.local.get("location");
+  var getting = browser.storage.local.get("color");
   getting.then(setCurrentChoice, onError);
 }
 

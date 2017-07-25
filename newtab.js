@@ -57,20 +57,19 @@ window.onload = () => {
   browser.windows.onFocusChanged.addListener(initNote);
 };
 
-//Weather Location
+//Weather
 function onError(error) {
   console.log(`Error: ${error}`);
 }
 
 function onGot(item) {
-  var location = "";
-  if (item.location) {
-    location = item.location;
+  var color = "";
+  if (item.color) {
+    place = item.color;
   }
-  var link = document.getElementById("weather");
-  link.setAttribute("href", "http://wttr.in/"+location);
-  return false;
+  var weather = document.getElementById('weather');
+  weather.href += place;
 }
 
-var getting = browser.storage.local.get("location");
+var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
