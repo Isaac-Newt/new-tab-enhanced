@@ -9,7 +9,7 @@ function saveOptions(e) {
 function restoreOptions() {
 
   function setCurrentChoice(result) {
-    document.querySelector("#color").value = result.color || "blue";
+    document.querySelector("#color").value = result.color || "";
   }
 
   function onError(error) {
