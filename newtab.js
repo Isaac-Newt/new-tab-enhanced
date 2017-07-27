@@ -75,7 +75,22 @@ var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
 //Theme
-function swapStyleSheet(sheet) {
+function onError(error) {
+  console.log('Error: ${error}');
+}
+
+function onGot(item) {
+  var theme = "Default";
+  if (item.theme) {
+    theme = item.theme;
+  }
+  var themeChoice = document.getElementById("style");
+}
+
+var coloring = browser.storage.local.get("theme");
+coloring.then(onGot, onError);
+
+/*function swapStyleSheet(sheet) {
     document.getElementById("style").setAttribute("href", sheet);
 }
 
@@ -91,4 +106,4 @@ function initate() {
     };
 }
 
-window.onload = initate;
+window.onload = initate;*/
