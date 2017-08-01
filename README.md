@@ -1,7 +1,5 @@
 # Enhanced New Tab
 
-### Themes-Implementation
-
 ### An enhanced new tab experience, for Firefox 54+ (and Chrome)
 
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
@@ -21,9 +19,9 @@ ToDo:
 
 * [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
 
-* [ ] Custom location for weather (esp. for VPN users)
+* [X] Custom location for weather (esp. for VPN users)
 
-* [ ] Add settings page for above settings
+* [X] Add settings page for above settings (still needs work)
 
 
 Credits
