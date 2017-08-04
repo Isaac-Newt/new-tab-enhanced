@@ -74,6 +74,16 @@ function onGot(item) {
 var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
+//toggle top sites sidebar
+function showTopSites() {
+  var sidebar = document.getElementById('topsites');
+  if(sidebar.style.visibility == null || sidebar.style.visibility == "visible") {
+      sidebar.style.visibility = "collapse";
+  } else {
+      sidebar.style.visibility = "visible";
+  }
+}
+
 /*function swapStyleSheet(sheet) {
     document.getElementById("style").setAttribute("href", sheet);
 }

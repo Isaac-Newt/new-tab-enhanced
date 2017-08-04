@@ -5,7 +5,9 @@ body {
 }
 
 #wrapper {
-  min-height: 100vh;
+  min-height: 90vh;
+  display: flex;
+  flex-flow: nowrap row;
 }
 
 #note-content {
@@ -52,7 +54,10 @@ a:hover {
 
 #topsites {
   background: #1b2126;
-  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
+  box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
+  flex-grow: 1;
+  flex-basis: 0;
+  //visibility: collapse;
 }
 
 #site-list-header {

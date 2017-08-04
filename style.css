@@ -38,6 +38,7 @@ body {
 
 #links>a {
   font-size: 32px;
+  margin: 8px 3.5rem;
 }
 
 a {
@@ -59,7 +60,7 @@ a:hover {
   box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
   flex-grow: 1;
   flex-basis: 0;
-  //visibility: collapse;
+  visibility: collapse;
 }
 
 #site-list-header {
