@@ -56,9 +56,10 @@ a:hover {
 
 #topsites {
   background: #424F5A;
-  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
+  box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
   flex-grow: 1;
   flex-basis: 0;
+  //visibility: collapse;
 }
 
 #site-list-header {
