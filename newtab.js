@@ -1,6 +1,10 @@
+var wide = document.getElementById('topsites').offsetWidth;
+document.getElementById('topsites').style.marginLeft = 0 + "px";
+console.log('hello1');
+
 browser.topSites.get()
   .then((sites) => {
-    var div = document.getElementById('site-list');
+    var div = document.getElementById('topsites');
 
     if (!sites.length) {
       div.innerText = 'No sites returned from the topSites API.';
@@ -77,10 +81,13 @@ getting.then(onGot, onError);
 //toggle top sites sidebar
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
-  if(sidebar.style.display == null || sidebar.style.display == "block") {
-      sidebar.style.display = "none";
+  var width = document.getElementById('topsites').scrollWidth;
+  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
+      sidebar.style.marginLeft = -width + "px";
+      console.log("shrink");
   } else {
-      sidebar.style.display = "block";
+      sidebar.style.marginLeft = "0px";
+      console.log("grow");
   }
 }
 
