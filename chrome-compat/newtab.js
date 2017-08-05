@@ -5,12 +5,14 @@ function onAnchorClick(event) {
 
 function buildSiteList(mostVisitedURLs) {
   var popupDiv = document.getElementById('site-list');
-  var ol = popupDiv.appendChild(document.createElement('ol'));
+  var ul = popupDiv.appendChild(document.createElement('ul'));
+  ul.className = 'list-group';
 
   mostVisitedURLs.splice(12);
 
   for (var i = 0; i < mostVisitedURLs.length; i++) {
-    var li = ol.appendChild(document.createElement('li'));
+    var li = ul.appendChild(document.createElement('li'));
+    li.className = 'list-group-item';
     var a = li.appendChild(document.createElement('a'));
     a.href = mostVisitedURLs[i].url;
     a.appendChild(document.createTextNode(mostVisitedURLs[i].title));
@@ -52,3 +54,15 @@ var VERSION = 1;
   bindNoteHandlers();
 })();
 
+//toggle top sites sidebar
+function showTopSites(event) {
+  var sidebar = document.getElementById('topsites');
+  if(sidebar.style.display == null || sidebar.style.display == "block") {
+      sidebar.style.display = "none";
+  } else {
+      sidebar.style.display = "block";
+  }
+}
+
+var toggleID = document.getElementById('toggle');
+toggleID.onclick = showTopSites;

@@ -1,10 +1,13 @@
 body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
 }
 
 #wrapper {
-  min-height: 100vh;
+  min-height: 90vh;
+  display: flex;
+  flex-flow: nowrap row;
 }
 
 #note-content {
@@ -19,6 +22,9 @@ body {
   box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
   background: #eadfc0;
   border: 1px solid rgba(66, 79, 90, 0.5);
+  display: flex;
+  flex-grow: 3;
+  flex-basis: 0;
 }
 
 #links {
@@ -26,61 +32,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #424F5A;
+  background: #4a4a4f;
   box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
 }
 
 #links>a {
   font-size: 32px;
-  display: flex;
-  text-decoration: none;
-  font-weight: normal;
-  margin: 8px 16px;
-  color: white;
-  font-family: "Fira Sans";
+  margin: 8px 3.5rem;
 }
 
-#topsites {
-  background: #424F5A;
-  box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
-}
-
-#site-list-header {
-  text-align: center;
-  color: white;
-  margin: 0;
-  padding: .25em;
-  font-family: "Fira Sans";
-  font-size: 36px;
-  font-weight: 400;
-}
-
-#divider {
-  height: 2px;
-  width: 20em;
-  margin: 0 auto;
-  background: white;
-}
-
-#site-list {
-  display: flex;
-  justify-content: center;
-}
-
-#site-list>ol {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 0;
-}
-
-li {
-  display: flex;
-  font-size: 24px;
-  padding: 12px;
-}
-
-li>a {
+a {
   display: flex;
   text-decoration: none;
   font-weight: normal;
@@ -90,6 +51,51 @@ li>a {
 }
 
 a:hover {
-  border-bottom: 1px solid white;
+  border-bottom: 1px white solid;
   transition: .15s;
+}
+
+#toggle {
+  background: transparent;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  font-weight: normal;
+  margin: 8px 16px;
+  color: white;
+  font-family: "Fira Sans";
+  font-size: 32px;
+}
+
+#toggle:hover {
+  border-bottom: 1px white solid;
+  transition: .15s;
+}
+
+#topsites {
+  border-top: 2px solid #0a84ff;
+  background: #4a4a4f;
+  box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
+  flex-grow: 1;
+  flex-basis: 0;
+  display: none;
+  transition: all 1s ease-out;
+}
+
+#site-list {
+  display: flex;
+  justify-content: center;
+}
+
+.list-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+.list-group-item {
+  display: flex;
+  font-size: 24px;
+  margin: 0 4px;
 }
