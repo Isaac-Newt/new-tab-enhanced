@@ -55,12 +55,29 @@ a:hover {
   transition: .15s;
 }
 
+#toggle {
+  background: transparent;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  font-weight: normal;
+  margin: 8px 16px;
+  color: white;
+  font-family: "Fira Sans";
+  font-size: 32px;
+}
+
+#toggle:hover {
+  border-bottom: 1px white solid;
+  transition: .15s;
+}
+
 #topsites {
   background: #424F5A;
   box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
   flex-grow: 1;
   flex-basis: 0;
-  visibility: collapse;
+  display: none;
 }
 
 #site-list-header {
@@ -95,4 +112,5 @@ a:hover {
 .list-group-item {
   display: flex;
   font-size: 24px;
+  margin: 0 4px;
 }

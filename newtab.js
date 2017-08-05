@@ -75,14 +75,18 @@ var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
 //toggle top sites sidebar
-function showTopSites() {
+function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
-  if(sidebar.style.visibility == null || sidebar.style.visibility == "visible") {
-      sidebar.style.visibility = "collapse";
+  if(sidebar.style.display == null || sidebar.style.display == "block") {
+      sidebar.style.display = "none";
   } else {
-      sidebar.style.visibility = "visible";
+      sidebar.style.display = "block";
   }
 }
+
+var toggleID = document.getElementById('toggle');
+toggleID.onclick = showTopSites;
+
 
 /*function swapStyleSheet(sheet) {
     document.getElementById("style").setAttribute("href", sheet);
