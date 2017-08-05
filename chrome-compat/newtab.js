@@ -1,10 +1,14 @@
+var wide = document.getElementById('topsites').offsetWidth;
+document.getElementById('topsites').style.marginLeft = 0 + "px";
+console.log('hello1');
+
 function onAnchorClick(event) {
   chrome.tabs.create({ url: event.srcElement.href });
   return false;
 }
 
 function buildSiteList(mostVisitedURLs) {
-  var popupDiv = document.getElementById('site-list');
+  var popupDiv = document.getElementById('topsites');
   var ul = popupDiv.appendChild(document.createElement('ul'));
   ul.className = 'list-group';
 
@@ -57,10 +61,13 @@ var VERSION = 1;
 //toggle top sites sidebar
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
-  if(sidebar.style.display == null || sidebar.style.display == "block") {
-      sidebar.style.display = "none";
+  var width = document.getElementById('topsites').scrollWidth;
+  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
+      sidebar.style.marginLeft = -width + "px";
+      console.log("shrink");
   } else {
-      sidebar.style.display = "block";
+      sidebar.style.marginLeft = "0px";
+      console.log("grow");
   }
 }
 

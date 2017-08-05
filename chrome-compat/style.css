@@ -5,7 +5,7 @@ body {
 }
 
 #wrapper {
-  min-height: 90vh;
+  min-height: 92vh;
   display: flex;
   flex-flow: nowrap row;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 #links {
-  min-height: 10vh;
+  min-height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +39,12 @@ body {
 #links>a {
   font-size: 32px;
   margin: 8px 3.5rem;
+  border-bottom: 3px rgba(255, 255, 255, 0.25) solid;
+}
+
+#links>a:hover {
+  border-bottom: 3px #0a84ff solid;
+  transition: .15s;
 }
 
 a {
@@ -51,7 +57,7 @@ a {
 }
 
 a:hover {
-  border-bottom: 1px white solid;
+  border-bottom: 1px #0a84ff solid;
   transition: .15s;
 }
 
@@ -65,26 +71,20 @@ a:hover {
   color: white;
   font-family: "Fira Sans";
   font-size: 32px;
+  border-bottom: 3px rgba(255, 255, 255, 0.25) solid;
 }
 
 #toggle:hover {
-  border-bottom: 1px white solid;
+  border-bottom: 3px #0a84ff solid;
   transition: .15s;
 }
 
 #topsites {
   border-top: 2px solid #0a84ff;
-  background: #4a4a4f;
+  background: rgba(12, 12, 13, .8);
   box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
-  flex-grow: 1;
   flex-basis: 0;
-  display: none;
-  transition: all 1s ease-out;
-}
-
-#site-list {
-  display: flex;
-  justify-content: center;
+  transition: all .25s ease-out;
 }
 
 .list-group {
