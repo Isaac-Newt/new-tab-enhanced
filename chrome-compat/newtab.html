@@ -3,25 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>New Tab Enhanced</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> 
+  <link id="style" rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 </head>
 <body>
-  <div id="wrapper">
-    <div id="links">
-      <a href="http://wttr.in/">Weather</a>
-      <a href="https://duckduckgo.com">Search</a>
-      <a href="#site-list">Top Sites</a>
-    </div>
-    <textarea id="note-content" placeholder="write some notes..."></textarea>
+  <div id="links">
+    <button id="toggle">Top Sites</button>
+    <a id="weather" href="http://wttr.in/">Weather</a>
+    <a href="https://duckduckgo.com">Search</a>
   </div>
-  <div id="topsites">
-    <p id="site-list-header">Top Sites</p>
-    <div id="divider"></div>
-    <div id="site-list"></div>
+  <div id="wrapper">
+    <div id="topsites"></div>
+    <textarea id="note-content" placeholder="write some notes..."></textarea>
   </div>
   <script src="./newtab.js"></script>
 </body>
 </html>
-
-

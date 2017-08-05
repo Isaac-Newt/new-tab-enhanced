@@ -1,6 +1,10 @@
+var wide = document.getElementById('topsites').offsetWidth;
+document.getElementById('topsites').style.marginLeft = 0 + "px";
+console.log('hello1');
+
 browser.topSites.get()
   .then((sites) => {
-    var div = document.getElementById('site-list');
+    var div = document.getElementById('topsites');
 
     if (!sites.length) {
       div.innerText = 'No sites returned from the topSites API.';
@@ -74,20 +78,18 @@ function onGot(item) {
 var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
-/*function swapStyleSheet(sheet) {
-    document.getElementById("style").setAttribute("href", sheet);
+//toggle top sites sidebar
+function showTopSites(event) {
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
+      sidebar.style.marginLeft = -width + "px";
+      console.log("shrink");
+  } else {
+      sidebar.style.marginLeft = "0px";
+      console.log("grow");
+  }
 }
 
-function initate() {
-    var style1 = document.getElementById("stylesheet1");
-    var style2 = document.getElementById("stylesheet2");
-
-    style1.onclick = function () {
-      swapStyleSheet("style.css")
-    };
-    style2.onclick = function () {
-      swapStyleSheet("styledark.css");
-    };
-}
-
-window.onload = initate;*/
+var toggleID = document.getElementById('toggle');
+toggleID.onclick = showTopSites;

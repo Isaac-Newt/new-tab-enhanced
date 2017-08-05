@@ -1,16 +1,22 @@
+var wide = document.getElementById('topsites').offsetWidth;
+document.getElementById('topsites').style.marginLeft = 0 + "px";
+console.log('hello1');
+
 function onAnchorClick(event) {
   chrome.tabs.create({ url: event.srcElement.href });
   return false;
 }
 
 function buildSiteList(mostVisitedURLs) {
-  var popupDiv = document.getElementById('site-list');
-  var ol = popupDiv.appendChild(document.createElement('ol'));
+  var popupDiv = document.getElementById('topsites');
+  var ul = popupDiv.appendChild(document.createElement('ul'));
+  ul.className = 'list-group';
 
   mostVisitedURLs.splice(12);
 
   for (var i = 0; i < mostVisitedURLs.length; i++) {
-    var li = ol.appendChild(document.createElement('li'));
+    var li = ul.appendChild(document.createElement('li'));
+    li.className = 'list-group-item';
     var a = li.appendChild(document.createElement('a'));
     a.href = mostVisitedURLs[i].url;
     a.appendChild(document.createTextNode(mostVisitedURLs[i].title));
@@ -52,3 +58,18 @@ var VERSION = 1;
   bindNoteHandlers();
 })();
 
+//toggle top sites sidebar
+function showTopSites(event) {
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
+      sidebar.style.marginLeft = -width + "px";
+      console.log("shrink");
+  } else {
+      sidebar.style.marginLeft = "0px";
+      console.log("grow");
+  }
+}
+
+var toggleID = document.getElementById('toggle');
+toggleID.onclick = showTopSites;
