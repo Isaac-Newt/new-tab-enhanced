@@ -1,6 +1,5 @@
 var wide = document.getElementById('topsites').offsetWidth;
 document.getElementById('topsites').style.marginLeft = 0 + "px";
-console.log('hello1');
 
 browser.topSites.get()
   .then((sites) => {
@@ -84,10 +83,8 @@ function showTopSites(event) {
   var width = document.getElementById('topsites').scrollWidth;
   if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
       sidebar.style.marginLeft = -width + "px";
-      console.log("shrink");
   } else {
       sidebar.style.marginLeft = "0px";
-      console.log("grow");
   }
 }
 
