@@ -8,10 +8,15 @@
 </head>
 <body>
   <div id="links">
-    <button id="toggle">Top Sites</button>
+    <button class="toggle" id="toggle">Top Sites</button>
     <a id="weather" href="http://wttr.in/">Weather</a>
     <a href="https://duckduckgo.com">Search</a>
+    <button class="toggle" id="searchToggle">Search(t)</button>
   </div>
+  <form class="popover" method="get" action="https://duckduckgo.com/">
+    <input id="searchbox" placeholder="Search with DuckDuckGo" name="q">
+    <input id="sbsubmit" type="submit" value="Search">
+  </form>
   <div id="wrapper">
     <div id="topsites"></div>
     <textarea id="note-content" placeholder="write some notes..."></textarea>

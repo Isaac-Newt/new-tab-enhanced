@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
+  background: #f9f9fa;
 }
 
 #wrapper {
@@ -62,7 +63,7 @@ a:hover {
   transition: .15s;
 }
 
-#toggle {
+.toggle {
   background: transparent;
   border: none;
   display: flex;
@@ -75,7 +76,7 @@ a:hover {
   border-bottom: 3px rgba(255, 255, 255, 0.25) solid;
 }
 
-#toggle:hover {
+.toggle:hover {
   border-bottom: 3px #0a84ff solid;
   transition: .15s;
 }
@@ -99,4 +100,56 @@ a:hover {
   display: flex;
   font-size: 24px;
   margin: 0 4px;
+}
+
+.popover {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 1.2em 0;
+  background: rgba(12, 12, 13, .8);
+  border-top: 2px solid #0a84ff;
+  position: absolute;
+  transition: .15s all ease-out;
+  width: 100%;
+  //margin-top: -140px;
+  box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
+}
+
+#searchbox {
+  width: 40em;
+  border-radius: 4px;
+  border: 2px solid rgba(66, 79, 90, 0.5);
+  line-height: 2em;
+  box-shadow: 0 0 .2rem rgba(0,0,0,0.25);
+  background: #636369;
+  color: white;
+  padding: 0 .5em;
+  font-size: 1rem;
+}
+
+#searchbox:hover {
+  background: rgba(255, 255, 255, .35);
+}
+
+#searchbox:focus {
+  border: 2px solid #0a84ff;
+}
+
+#sbsubmit {
+  background: transparent;
+  color: #0a84ff;
+  margin: 0 6px;
+  line-height: 2em;
+  padding: 0 .5em;
+  border-radius: 4px;
+  border: 2px solid #0a84ff;
+  font-size: 1rem;
+}
+
+#sbsubmit:hover {
+  background: #0a84ff;
+  color: white;
+  cursor: pointer;
+  transition: .15s;
 }

@@ -12,21 +12,16 @@ browser.topSites.get()
 
     sites.splice(12);
 
-    let ul = document.createElement('ul');
-    ul.className = 'list-group';
     for (let site of sites) {
-      let li = document.createElement('li');
-      li.className = 'list-group-item';
+      let p = document.createElement('p');
+      p.className = 'list-group-item';
       let a = document.createElement('a');
       a.href = site.url;
       a.innerText = site.title || site.url;
-      li.appendChild(a);
-      ul.appendChild(li);
+      p.appendChild(a);
+      div.appendChild(p);
     }
-
-    div.appendChild(ul);
   });
-
 
 var VERSION = 1;
 
@@ -83,8 +78,10 @@ function showTopSites(event) {
   var width = document.getElementById('topsites').scrollWidth;
   if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
       sidebar.style.marginLeft = -width + "px";
+      sidebar.style.boxShadow = "none";
   } else {
       sidebar.style.marginLeft = "0px";
+      sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
   }
 }
 
