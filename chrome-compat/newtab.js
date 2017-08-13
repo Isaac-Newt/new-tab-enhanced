@@ -73,3 +73,29 @@ function showTopSites(event) {
 
 var toggleID = document.getElementById('toggle');
 toggleID.onclick = showTopSites;
+
+//toggle searchbox
+function showSearch(event) {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
+    searchPopOver.style.maxHeight = "60px";
+    searchPopOver.style.padding = "1.2em 0";
+    searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+    searchPopOver.style.borderTop = "2px solid #0a84ff";
+    box.style.visibility = "visible";
+    box.focus();
+    button.style.visibility = "visible";
+  } else {
+    searchPopOver.style.maxHeight = "0px";
+    searchPopOver.style.padding = "0";
+    searchPopOver.style.boxShadow = "none";
+    searchPopOver.style.borderTop = "none";
+    box.style.visibility = "collapse";
+    button.style.visibility = "collapse";
+  }
+}
+
+var toggleSearch = document.getElementById('searchToggle');
+toggleSearch.onclick = showSearch;
