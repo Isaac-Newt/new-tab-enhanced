@@ -1,3 +1,4 @@
+//Top Sites
 var wide = document.getElementById('topsites').offsetWidth;
 document.getElementById('topsites').style.marginLeft = 0 + "px";
 
@@ -66,11 +67,16 @@ function onGot(item) {
     place = item.color;
   }
   var weather = document.getElementById('weather');
-  weather.href += place;
+  weather.src += place += "_2qt.png";
 }
 
 var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
+
+/*Toggles
+The below functions are used to toggle the various panels/dropdowns in this extension.
+They are labeled pretty clearly as to what they do.
+*/
 
 //toggle top sites sidebar
 function showTopSites(event) {
@@ -93,23 +99,63 @@ function showSearch(event) {
   var searchPopOver = document.getElementById('searchBoxId');
   var box = document.getElementById('searchbox');
   var button = document.getElementById('sbsubmit');
+  var weatherPopOver = document.getElementById('weather-div');
   if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
-    searchPopOver.style.maxHeight = "60px";
-    searchPopOver.style.padding = "1.2em 0";
-    searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
-    searchPopOver.style.borderTop = "2px solid #0a84ff";
-    box.style.visibility = "visible";
-    box.focus();
-    button.style.visibility = "visible";
+    if(weatherPopOver.style.maxHeight = "450px") {
+      weatherPopOver.style.maxHeight = "0px";
+      weatherPopOver.style.padding = "0";
+    }
+    growSearch();
   } else {
-    searchPopOver.style.maxHeight = "0px";
-    searchPopOver.style.padding = "0";
-    searchPopOver.style.boxShadow = "none";
-    searchPopOver.style.borderTop = "none";
-    box.style.visibility = "collapse";
-    button.style.visibility = "collapse";
+    shrinkSearch();
   }
+}
+
+function growSearch() {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  searchPopOver.style.maxHeight = "60px";
+  searchPopOver.style.padding = "1.2em 0";
+  searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+  searchPopOver.style.borderTop = "2px solid #0a84ff";
+  box.style.visibility = "visible";
+  box.focus();
+  button.style.visibility = "visible";
+}
+
+function shrinkSearch() {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  searchPopOver.style.maxHeight = "0px";
+  searchPopOver.style.padding = "0";
+  searchPopOver.style.boxShadow = "none";
+  searchPopOver.style.borderTop = "none";
+  box.style.visibility = "collapse";
+  button.style.visibility = "collapse";
 }
 
 var toggleSearch = document.getElementById('searchToggle');
 toggleSearch.onclick = showSearch;
+
+//Toggle Weather
+function showWeather(event) {
+  var weatherPopOver = document.getElementById('weather-div');
+  var searchPopOver = document.getElementById('searchBoxId');
+  if(weatherPopOver.style.maxHeight == "0px" || weatherPopOver.style.maxHeight == null) {
+    if(searchPopOver.style.maxHeight = "60px") {
+      shrinkSearch();
+    }
+    weatherPopOver.style.maxHeight = "450px";
+    weatherPopOver.style.padding = "1.2em 0";
+    weatherPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+  } else {
+    weatherPopOver.style.maxHeight = "0px";
+    weatherPopOver.style.padding = "0";
+    weatherPopOver.style.boxShadow = "none";
+  }
+}
+
+var toggleSearch = document.getElementById('weatherToggle');
+toggleSearch.onclick = showWeather;
