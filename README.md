@@ -4,24 +4,32 @@
 
 This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
 
-
-
 Notes:
 ---
 
  - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
  - Weather links to [wttr.in](http://wttr.in) and should show local weather based on your IP address.  
 
+Screenshots:
+---
 
+### Top Sites
+![Top Sites](images/sites.png)
+
+### Search
+![](images/search.png)
 
 ToDo:
 ---
+* [ ] Implement weather as a dropdown PNG image
+
+* [X] Implement Search as a dropdown searchbox
 
 * [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
 
 * [X] Custom location for weather (esp. for VPN users)
 
-* [X] Add settings page for above settings (still needs work)
+* [X] Add settings page (still needs work)
 
 
 Credits
