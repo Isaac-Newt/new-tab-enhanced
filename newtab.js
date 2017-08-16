@@ -118,7 +118,7 @@ function growSearch() {
   searchPopOver.style.maxHeight = "60px";
   searchPopOver.style.padding = "1.2em 0";
   searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
-  searchPopOver.style.borderTop = "2px solid #0a84ff";
+  searchPopOver.style.borderTop = "2px solid var(--highlight-color)";
   box.style.visibility = "visible";
   box.focus();
   button.style.visibility = "visible";
@@ -147,6 +147,7 @@ function showWeather(event) {
     if(searchPopOver.style.maxHeight = "60px") {
       shrinkSearch();
     }
+    weatherPopOver.style.borderTop = "2px solid var(--highlight-color)";
     weatherPopOver.style.maxHeight = "450px";
     weatherPopOver.style.padding = "1.2em 0";
     weatherPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
@@ -154,6 +155,7 @@ function showWeather(event) {
     weatherPopOver.style.maxHeight = "0px";
     weatherPopOver.style.padding = "0";
     weatherPopOver.style.boxShadow = "none";
+    weatherPopOver.style.borderTop = "none";
   }
 }
 
