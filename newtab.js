@@ -1,7 +1,4 @@
 //Top Sites
-var wide = document.getElementById('topsites').offsetWidth;
-document.getElementById('topsites').style.marginLeft = 0 + "px";
-
 browser.topSites.get()
   .then((sites) => {
     var div = document.getElementById('topsites');
@@ -23,6 +20,9 @@ browser.topSites.get()
       div.appendChild(p);
     }
   });
+
+/*var wide = document.getElementById('topsites').offsetWidth;*/
+document.getElementById('topsites').style.marginLeft = -300 + "px";
 
 var VERSION = 1;
 
@@ -82,6 +82,7 @@ They are labeled pretty clearly as to what they do.
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
   var width = document.getElementById('topsites').scrollWidth;
+  document.getElementById('topsites').style.transition = "all .25s ease-out";
   if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
       sidebar.style.marginLeft = -width + "px";
       sidebar.style.boxShadow = "none";

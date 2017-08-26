@@ -21,7 +21,7 @@
   },
 
   "permissions": [
-    "storage", "identity", "topSites"
+    "storage", "identity", "topSites", "bookmarks"
   ],
 
   "chrome_url_overrides": {
