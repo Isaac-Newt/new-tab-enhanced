@@ -9,17 +9,13 @@
 <body>
   <div id="links">
     <button class="toggle" id="toggle">Top Sites</button>
-    <button class="toggle" id="weatherToggle">Weather</a>
+    <a class="toggle" id="weather" href="https://duckduckgo.com/?q=weather+">Weather</a>
     <button class="toggle" id="searchToggle">Search</button>
   </div>
   <form class="popover" id="searchBoxId" method="get" action="https://duckduckgo.com/" style="max-height: 0px">
     <input id="searchbox" placeholder="Search with DuckDuckGo" name="q">
     <input id="sbsubmit" type="submit" value="Search">
   </form>
-  <div id="weather-div" style="max-height: 0px">
-    <img id="weather" src="http://wttr.in/"></img>
-    <!--<h2>More at <a href="http://wttr.in/">wttr.in</a></h2>-->
-  </div>
   <div id="wrapper">
     <div id="topsites"></div>
     <textarea id="note-content" placeholder="write some notes..."></textarea>

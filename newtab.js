@@ -66,7 +66,7 @@ function onGot(item) {
     place = item.color;
   }
   var weather = document.getElementById('weather');
-  weather.src += place += "_0q.png";
+  weather.href += place;
 }
 
 var getting = browser.storage.local.get("color");
@@ -102,22 +102,6 @@ function shrinkSearch() {
   button.style.visibility = "collapse";
 }
 
-function growWeather() {
-  var weatherPopOver = document.getElementById('weather-div');
-  weatherPopOver.style.borderTop = "2px solid var(--highlight-color)";
-  weatherPopOver.style.maxHeight = "115px";
-  weatherPopOver.style.padding = "1.2em 0";
-  weatherPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
-}
-
-function shrinkWeather() {
-  var weatherPopOver = document.getElementById('weather-div');
-  weatherPopOver.style.maxHeight = "0px";
-  weatherPopOver.style.padding = "0";
-  weatherPopOver.style.boxShadow = "none";
-  weatherPopOver.style.borderTop = "none";
-}
-
 //toggle top sites sidebar
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
@@ -127,7 +111,6 @@ function showTopSites(event) {
     sidebar.style.marginLeft = -width + "px";
     sidebar.style.boxShadow = "none";
   } else {
-    shrinkWeather();
     shrinkSearch();
     sidebar.style.marginLeft = "0px";
     sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
@@ -142,13 +125,9 @@ function showSearch(event) {
   var searchPopOver = document.getElementById('searchBoxId');
   var box = document.getElementById('searchbox');
   var button = document.getElementById('sbsubmit');
-  var weatherPopOver = document.getElementById('weather-div');
   var sidebar = document.getElementById('topsites');
   var width = document.getElementById('topsites').scrollWidth;
   if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
-    if(weatherPopOver.style.maxHeight = "450px") {
-      shrinkWeather();
-    }
     if(sidebar.style.marginLeft = "0px") {
       sidebar.style.marginLeft = -width + "px";
       sidebar.style.boxShadow = "none";
@@ -161,26 +140,3 @@ function showSearch(event) {
 
 var toggleSearch = document.getElementById('searchToggle');
 toggleSearch.onclick = showSearch;
-
-//Toggle Weather
-function showWeather(event) {
-  var weatherPopOver = document.getElementById('weather-div');
-  var searchPopOver = document.getElementById('searchBoxId');
-  var sidebar = document.getElementById('topsites');
-  var width = document.getElementById('topsites').scrollWidth;
-  if(weatherPopOver.style.maxHeight == "0px" || weatherPopOver.style.maxHeight == null) {
-    if(searchPopOver.style.maxHeight = "60px") {
-      shrinkSearch();
-    }
-    if(sidebar.style.marginLeft = "0px") {
-      sidebar.style.marginLeft = -width + "px";
-      sidebar.style.boxShadow = "none";
-    }
-    growWeather();
-  } else {
-    shrinkWeather();
-  }
-}
-
-var toggleSearch = document.getElementById('weatherToggle');
-toggleSearch.onclick = showWeather;
