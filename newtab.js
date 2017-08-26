@@ -21,7 +21,7 @@ browser.topSites.get()
     }
   });
 
-document.getElementById('topsites').style.marginLeft = -300 + "px";
+document.getElementById('topsites').style.marginLeft = -100 + "%";
 
 var VERSION = 1;
 

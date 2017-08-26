@@ -1,7 +1,3 @@
-var wide = document.getElementById('topsites').offsetWidth;
-document.getElementById('topsites').style.marginLeft = 0 + "px";
-console.log('hello1');
-
 function onAnchorClick(event) {
   chrome.tabs.create({ url: event.srcElement.href });
   return false;
@@ -25,6 +21,8 @@ function buildSiteList(mostVisitedURLs) {
 }
 
 chrome.topSites.get(buildSiteList);
+
+document.getElementById('topsites').style.marginLeft = -100 + "%";
 
 var VERSION = 1;
 
@@ -58,16 +56,48 @@ var VERSION = 1;
   bindNoteHandlers();
 })();
 
+/*Toggles
+The below functions are used to toggle the various panels/dropdowns in this extension.
+They are labeled pretty clearly as to what they do.
+*/
+
+function growSearch() {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  searchPopOver.style.maxHeight = "60px";
+  searchPopOver.style.padding = "1.2em 0";
+  searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+  searchPopOver.style.borderTop = "2px solid var(--highlight-color)";
+  box.style.visibility = "visible";
+  box.focus();
+  button.style.visibility = "visible";
+}
+
+function shrinkSearch() {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  searchPopOver.style.maxHeight = "0px";
+  searchPopOver.style.padding = "0";
+  searchPopOver.style.boxShadow = "none";
+  searchPopOver.style.borderTop = "none";
+  box.style.visibility = "collapse";
+  button.style.visibility = "collapse";
+}
+
 //toggle top sites sidebar
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
   var width = document.getElementById('topsites').scrollWidth;
+  document.getElementById('topsites').style.transition = "all .25s ease-out";
   if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
-      sidebar.style.marginLeft = -width + "px";
-      console.log("shrink");
+    sidebar.style.marginLeft = -width + "px";
+    sidebar.style.boxShadow = "none";
   } else {
-      sidebar.style.marginLeft = "0px";
-      console.log("grow");
+    shrinkSearch();
+    sidebar.style.marginLeft = "0px";
+    sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
   }
 }
 
@@ -79,21 +109,16 @@ function showSearch(event) {
   var searchPopOver = document.getElementById('searchBoxId');
   var box = document.getElementById('searchbox');
   var button = document.getElementById('sbsubmit');
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
   if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
-    searchPopOver.style.maxHeight = "60px";
-    searchPopOver.style.padding = "1.2em 0";
-    searchPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
-    searchPopOver.style.borderTop = "2px solid #0a84ff";
-    box.style.visibility = "visible";
-    box.focus();
-    button.style.visibility = "visible";
+    if(sidebar.style.marginLeft = "0px") {
+      sidebar.style.marginLeft = -width + "px";
+      sidebar.style.boxShadow = "none";
+    }
+    growSearch();
   } else {
-    searchPopOver.style.maxHeight = "0px";
-    searchPopOver.style.padding = "0";
-    searchPopOver.style.boxShadow = "none";
-    searchPopOver.style.borderTop = "none";
-    box.style.visibility = "collapse";
-    button.style.visibility = "collapse";
+    shrinkSearch();
   }
 }
 
