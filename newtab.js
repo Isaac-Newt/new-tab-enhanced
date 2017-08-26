@@ -21,7 +21,6 @@ browser.topSites.get()
     }
   });
 
-/*var wide = document.getElementById('topsites').offsetWidth;*/
 document.getElementById('topsites').style.marginLeft = -300 + "px";
 
 var VERSION = 1;
@@ -67,7 +66,7 @@ function onGot(item) {
     place = item.color;
   }
   var weather = document.getElementById('weather');
-  weather.src += place += "_1qt.png";
+  weather.src += place += "_0q.png";
 }
 
 var getting = browser.storage.local.get("color");
@@ -77,40 +76,6 @@ getting.then(onGot, onError);
 The below functions are used to toggle the various panels/dropdowns in this extension.
 They are labeled pretty clearly as to what they do.
 */
-
-//toggle top sites sidebar
-function showTopSites(event) {
-  var sidebar = document.getElementById('topsites');
-  var width = document.getElementById('topsites').scrollWidth;
-  document.getElementById('topsites').style.transition = "all .25s ease-out";
-  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
-      sidebar.style.marginLeft = -width + "px";
-      sidebar.style.boxShadow = "none";
-  } else {
-      sidebar.style.marginLeft = "0px";
-      sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
-  }
-}
-
-var toggleID = document.getElementById('toggle');
-toggleID.onclick = showTopSites;
-
-//toggle searchbox
-function showSearch(event) {
-  var searchPopOver = document.getElementById('searchBoxId');
-  var box = document.getElementById('searchbox');
-  var button = document.getElementById('sbsubmit');
-  var weatherPopOver = document.getElementById('weather-div');
-  if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
-    if(weatherPopOver.style.maxHeight = "450px") {
-      weatherPopOver.style.maxHeight = "0px";
-      weatherPopOver.style.padding = "0";
-    }
-    growSearch();
-  } else {
-    shrinkSearch();
-  }
-}
 
 function growSearch() {
   var searchPopOver = document.getElementById('searchBoxId');
@@ -137,6 +102,63 @@ function shrinkSearch() {
   button.style.visibility = "collapse";
 }
 
+function growWeather() {
+  var weatherPopOver = document.getElementById('weather-div');
+  weatherPopOver.style.borderTop = "2px solid var(--highlight-color)";
+  weatherPopOver.style.maxHeight = "115px";
+  weatherPopOver.style.padding = "1.2em 0";
+  weatherPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+}
+
+function shrinkWeather() {
+  var weatherPopOver = document.getElementById('weather-div');
+  weatherPopOver.style.maxHeight = "0px";
+  weatherPopOver.style.padding = "0";
+  weatherPopOver.style.boxShadow = "none";
+  weatherPopOver.style.borderTop = "none";
+}
+
+//toggle top sites sidebar
+function showTopSites(event) {
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  document.getElementById('topsites').style.transition = "all .25s ease-out";
+  if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
+    sidebar.style.marginLeft = -width + "px";
+    sidebar.style.boxShadow = "none";
+  } else {
+    shrinkWeather();
+    shrinkSearch();
+    sidebar.style.marginLeft = "0px";
+    sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
+  }
+}
+
+var toggleID = document.getElementById('toggle');
+toggleID.onclick = showTopSites;
+
+//toggle searchbox
+function showSearch(event) {
+  var searchPopOver = document.getElementById('searchBoxId');
+  var box = document.getElementById('searchbox');
+  var button = document.getElementById('sbsubmit');
+  var weatherPopOver = document.getElementById('weather-div');
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
+    if(weatherPopOver.style.maxHeight = "450px") {
+      shrinkWeather();
+    }
+    if(sidebar.style.marginLeft = "0px") {
+      sidebar.style.marginLeft = -width + "px";
+      sidebar.style.boxShadow = "none";
+    }
+    growSearch();
+  } else {
+    shrinkSearch();
+  }
+}
+
 var toggleSearch = document.getElementById('searchToggle');
 toggleSearch.onclick = showSearch;
 
@@ -144,19 +166,19 @@ toggleSearch.onclick = showSearch;
 function showWeather(event) {
   var weatherPopOver = document.getElementById('weather-div');
   var searchPopOver = document.getElementById('searchBoxId');
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
   if(weatherPopOver.style.maxHeight == "0px" || weatherPopOver.style.maxHeight == null) {
     if(searchPopOver.style.maxHeight = "60px") {
       shrinkSearch();
     }
-    weatherPopOver.style.borderTop = "2px solid var(--highlight-color)";
-    weatherPopOver.style.maxHeight = "275px";
-    weatherPopOver.style.padding = "1.2em 0";
-    weatherPopOver.style.boxShadow = "0 .4rem .4rem rgba(0,0,0,0.35)";
+    if(sidebar.style.marginLeft = "0px") {
+      sidebar.style.marginLeft = -width + "px";
+      sidebar.style.boxShadow = "none";
+    }
+    growWeather();
   } else {
-    weatherPopOver.style.maxHeight = "0px";
-    weatherPopOver.style.padding = "0";
-    weatherPopOver.style.boxShadow = "none";
-    weatherPopOver.style.borderTop = "none";
+    shrinkWeather();
   }
 }
 
