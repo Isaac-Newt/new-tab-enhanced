@@ -1,5 +1,5 @@
 //Top Sites
-browser.topSites.get()
+/*browser.topSites.get()
   .then((sites) => {
     var div = document.getElementById('topsites');
 
@@ -19,15 +19,23 @@ browser.topSites.get()
       p.appendChild(a);
       div.appendChild(p);
     }
-  });
+  });*/
 
 document.getElementById('topsites').style.marginLeft = -100 + "%";
 
 //bookmarks
 function onFulfilled(children) {
+  var div = document.getElementById('topsites');
+
   for (child of children) {
-    console.log(child.url);
-    console.log(child.title);
+    console.log(child.id);
+    let p = document.createElement('p');
+    p.className = 'list-group-item';
+    let a = document.createElement('a');
+    a.href = child.url;
+    a.innerText = child.title || site.url;
+    p.appendChild(a);
+    div.appendChild(p);
   }
 }
 
