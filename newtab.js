@@ -26,7 +26,8 @@ document.getElementById('topsites').style.marginLeft = -100 + "%";
 //bookmarks
 function onFulfilled(children) {
   for (child of children) {
-    console.log(child.id);
+    console.log(child.url);
+    console.log(child.title);
   }
 }
 
@@ -37,9 +38,9 @@ function onRejected(error) {
 var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
 gettingChildren.then(onFulfilled, onRejected);
 
+//notes
 var VERSION = 1;
 
-//notes
 window.onload = () => {
   var $textarea = document.querySelector('#note-content');
 
