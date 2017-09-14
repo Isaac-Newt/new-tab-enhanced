@@ -21,8 +21,6 @@ Screenshots:
 
 ToDo:
 ---
-* [ ] Implement weather as a dropdown PNG image
-
 * [X] Implement Search as a dropdown searchbox
 
 * [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
@@ -30,6 +28,8 @@ ToDo:
 * [X] Custom location for weather (esp. for VPN users)
 
 * [X] Add settings page (still needs work)
+
+* [ ] Add info about customizing top sites using about:newtab
 
 
 Credits
