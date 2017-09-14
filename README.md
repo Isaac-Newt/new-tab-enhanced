@@ -8,7 +8,7 @@ Notes:
 ---
 
  - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
- - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky]](http://wttr.in) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
+ - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky](http://darksky.net) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
 
 Screenshots:
 ---
