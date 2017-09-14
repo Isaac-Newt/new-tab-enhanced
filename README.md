@@ -27,9 +27,9 @@ ToDo:
 
 * [X] Custom location for weather (esp. for VPN users)
 
-* [X] Add settings page (still needs work)
+* [X] Add settings page
 
-* [ ] Add info about customizing top sites using about:newtab
+* [ ] Improve settings page
 
 
 Credits
