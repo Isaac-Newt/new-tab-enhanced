@@ -23,6 +23,20 @@ browser.topSites.get()
 
 document.getElementById('topsites').style.marginLeft = -100 + "%";
 
+//bookmarks
+function onFulfilled(children) {
+  for (child of children) {
+    console.log(child.id);
+  }
+}
+
+function onRejected(error) {
+  console.log(`An error: ${error}`);
+}
+
+var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
+gettingChildren.then(onFulfilled, onRejected);
+
 var VERSION = 1;
 
 //notes
@@ -72,10 +86,11 @@ function onGot(item) {
 var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
-/*Toggles
-The below functions are used to toggle the various panels/dropdowns in this extension.
-They are labeled pretty clearly as to what they do.
-*/
+/* Toggles
+ * The below functions are used to toggle the various
+ * panels/dropdowns in this extension. They are labeled
+ * pretty clearly as to what they do.
+ */
 
 function growSearch() {
   var searchPopOver = document.getElementById('searchBoxId');
