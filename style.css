@@ -90,6 +90,10 @@ a:hover {
   position: absolute;
 }
 
+#bookmarks {
+  
+}
+
 .list-group-item {
   display: flex;
   font-size: 24px;

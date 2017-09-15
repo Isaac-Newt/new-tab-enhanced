@@ -25,7 +25,7 @@ document.getElementById('topsites').style.marginLeft = -100 + "%";
 
 //bookmarks
 function onFulfilled(children) {
-  var div = document.getElementById('topsites');
+  var div = document.getElementById('boomkarks');
 
   for (child of children) {
     console.log(child.id);
@@ -143,6 +143,10 @@ function showTopSites(event) {
 
 var toggleID = document.getElementById('toggle');
 toggleID.onclick = showTopSites;
+
+//toggle bookmarks sidebar
+var toggleID = document.getElementById('bmtoggle');
+toggleID.onclick = showBookmarks;
 
 //toggle searchbox
 function showSearch(event) {
