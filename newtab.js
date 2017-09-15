@@ -1,5 +1,5 @@
 //Top Sites
-/*browser.topSites.get()
+browser.topSites.get()
   .then((sites) => {
     var div = document.getElementById('topsites');
 
@@ -19,7 +19,7 @@
       p.appendChild(a);
       div.appendChild(p);
     }
-  });*/
+  });
 
 document.getElementById('topsites').style.marginLeft = -100 + "%";
 
