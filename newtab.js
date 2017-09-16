@@ -23,9 +23,34 @@ browser.topSites.get()
 
 document.getElementById('topsites').style.marginLeft = -100 + "%";
 
-var VERSION = 1;
+//bookmarks
+function onFulfilled(children) {
+  var divbm = document.getElementById('bookmarks');
+
+  for (child of children) {
+    console.log(child.id);
+    let p = document.createElement('p');
+    p.className = 'list-group-item';
+    let a = document.createElement('a');
+    a.href = child.url;
+    a.innerText = child.title || site.url;
+    p.appendChild(a);
+    divbm.appendChild(p);
+  }
+}
+
+function onRejected(error) {
+  console.log(`An error: ${error}`);
+}
+
+var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
+gettingChildren.then(onFulfilled, onRejected);
+
+document.getElementById('bookmarks').style.marginLeft = -100 + "%";
 
 //notes
+var VERSION = 1;
+
 window.onload = () => {
   var $textarea = document.querySelector('#note-content');
 
@@ -72,11 +97,18 @@ function onGot(item) {
 var getting = browser.storage.local.get("color");
 getting.then(onGot, onError);
 
-/*Toggles
-The below functions are used to toggle the various panels/dropdowns in this extension.
-They are labeled pretty clearly as to what they do.
-*/
+/* Toggles
+ * The below functions are used to toggle the various
+ * panels/dropdowns in this extension. They are labeled
+ * pretty clearly as to what they do.
+ */
 
+/* Callback functions
+ * There's probably a better name for these, but they're 
+ * here so the toggle functions below are readable.
+ */
+
+//search
 function growSearch() {
   var searchPopOver = document.getElementById('searchBoxId');
   var box = document.getElementById('searchbox');
@@ -102,23 +134,73 @@ function shrinkSearch() {
   button.style.visibility = "collapse";
 }
 
+//topsites
+function shrinkTopSites() {
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  document.getElementById('topsites').style.transition = "all .25s ease-out";
+  sidebar.style.marginLeft = -width + "px";
+  sidebar.style.boxShadow = "none";
+}
+
+function growTopSites() {
+  var sidebar = document.getElementById('topsites');
+  var width = document.getElementById('topsites').scrollWidth;
+  document.getElementById('topsites').style.transition = "all .25s ease-out";
+  sidebar.style.marginLeft = "0px";
+  sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
+}
+
+//bookmarks
+function shrinkBookmarks() {
+  var sidebar = document.getElementById('bookmarks');
+  var width = document.getElementById('bookmarks').scrollWidth;
+  document.getElementById('bookmarks').style.transition = "all .25s ease-out";
+  sidebar.style.marginLeft = -width + "px";
+  sidebar.style.boxShadow = "none";
+}
+
+function growBookmarks() {
+  var sidebar = document.getElementById('bookmarks');
+  var width = document.getElementById('bookmarks').scrollWidth;
+  document.getElementById('bookmarks').style.transition = "all .25s ease-out";
+  sidebar.style.marginLeft = "0px";
+  sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
+}
+
 //toggle top sites sidebar
 function showTopSites(event) {
   var sidebar = document.getElementById('topsites');
   var width = document.getElementById('topsites').scrollWidth;
   document.getElementById('topsites').style.transition = "all .25s ease-out";
   if(sidebar.style.marginLeft == "0px" || sidebar.style.marginLeft == null) {
-    sidebar.style.marginLeft = -width + "px";
-    sidebar.style.boxShadow = "none";
+    shrinkTopSites();
   } else {
+    shrinkBookmarks();
     shrinkSearch();
-    sidebar.style.marginLeft = "0px";
-    sidebar.style.boxShadow = "0 0 .4rem rgba(0,0,0,0.35)";
+    growTopSites();
   }
 }
 
 var toggleID = document.getElementById('toggle');
 toggleID.onclick = showTopSites;
+
+//toggle bookmarks sidebar
+function showBookmarks(event) {
+  var sidebarbm = document.getElementById('bookmarks');
+  var width = document.getElementById('bookmarks').scrollWidth;
+  document.getElementById('bookmarks').style.transition = "all .25s ease-out";
+  if(sidebarbm.style.marginLeft == "0px" || sidebarbm.style.marginLeft == null) {
+    shrinkBookmarks();
+  } else {
+    shrinkTopSites();
+    shrinkSearch();
+    growBookmarks();
+  }
+}
+
+var toggleID = document.getElementById('bmtoggle');
+toggleID.onclick = showBookmarks;
 
 //toggle searchbox
 function showSearch(event) {
@@ -129,8 +211,7 @@ function showSearch(event) {
   var width = document.getElementById('topsites').scrollWidth;
   if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
     if(sidebar.style.marginLeft = "0px") {
-      sidebar.style.marginLeft = -width + "px";
-      sidebar.style.boxShadow = "none";
+      shrinkTopSites();
     }
     growSearch();
   } else {
