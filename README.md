@@ -9,6 +9,8 @@ Notes:
 
  - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
 
+  - Bookmarks will be the same as those In the bookmarks toolbar.  
+
  - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky](http://darksky.net) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
 
 
@@ -41,7 +43,7 @@ Credit for the initial work on the "notebook", and the initial base for this pro
 
 JavaScript for the topSites API from [Top-Sites](https://github.com/mdn/webextensions-examples/tree/master/top-sites) Webextensions example from MDN.
 
-Weather links to [wttr.in](https://github.com/chubin/wttr.in), an open-source weather display utility.
+Weather links to [Dark Sky](https:/darksky.net) via DuckDuckGo
 
 Search links to [DuckDuckGo](https://duckduckgo.com), a search engine that doesn't track you.
 
