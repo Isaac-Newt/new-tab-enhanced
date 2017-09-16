@@ -28,7 +28,6 @@ function onFulfilled(children) {
   var divbm = document.getElementById('bookmarks');
 
   for (child of children) {
-    console.log(child.id);
     let p = document.createElement('p');
     p.className = 'list-group-item';
     let a = document.createElement('a');
@@ -104,7 +103,7 @@ getting.then(onGot, onError);
  */
 
 /* Callback functions
- * There's probably a better name for these, but they're 
+ * There's probably a better name for these, but they're
  * here so the toggle functions below are readable.
  */
 
