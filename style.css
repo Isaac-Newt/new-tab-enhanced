@@ -7,6 +7,11 @@
   --notes-text: #000; /*#000, #fff*/
 }
 
+@@font-face {
+  font-family: "Fira Sans";
+  src: url("/fonts/Fira_Sans/FiraSans-Regular.ttf");
+}
+
 body {
   padding: 0;
   margin: 0;
