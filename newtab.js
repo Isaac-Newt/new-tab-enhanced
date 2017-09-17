@@ -31,8 +31,38 @@ function onFulfilled(children) {
     let p = document.createElement('p');
     p.className = 'list-group-item';
     let a = document.createElement('a');
-    a.href = child.url;
-    a.innerText = child.title || site.url;
+    
+    //filter out non-bookmark items, specifically seperators
+    var bookmarksArray = [];
+    var seperatorsArray = [];
+    if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
+      bookmarksArray.push(child);
+      console.log("bookmark");
+    } else {
+      if (child.type = "seperator") {
+        seperatorsArray.push(child);
+        console.log("seperator");
+      }
+    }
+    
+    /*
+     * I eventually want to add support for reading the contents of 
+     * folders in the bookmarks toolbar.  However, that adds more 
+     * complexity to an already shaky function.  I will add support
+     * for folders when I begin using a seperate folder specifically
+     * for this addon, rather than the bookmarks toolbar.  So, expect
+     * improvements sometime around the 2.0 release.
+     *
+     * ~Isaac
+     */
+    
+    //add bookmark info to sidebar items
+    for (i = 0; i < bookmarksArray.length; i++) {
+      a.href = bookmarksArray[i].url;
+      a.innerText = bookmarksArray[i].title || bookmarksArray[i].url;
+    }
+    
+    //attach sidebar items to each other
     p.appendChild(a);
     divbm.appendChild(p);
   }

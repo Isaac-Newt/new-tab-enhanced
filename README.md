@@ -1,4 +1,4 @@
-# Enhanced New Tab
+# New Tab Enhanced
 
 ### An enhanced new tab experience, for Firefox 54+ (and Chrome)
 
@@ -21,7 +21,7 @@ Screenshots:
 ![Top Sites](images/sites.png)
 
 ### Search
-![](images/search.png)
+![Search](images/search.png)
 
 ToDo:
 ---
