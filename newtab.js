@@ -37,11 +37,9 @@ function onFulfilled(children) {
     var seperatorsArray = [];
     if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
       bookmarksArray.push(child);
-      console.log("bookmark");
     } else {
       if (child.type = "seperator") {
         seperatorsArray.push(child);
-        console.log("seperator");
       }
     }
 
