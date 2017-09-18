@@ -43,14 +43,15 @@ function onFulfilled(children) {
         seperatorsArray.push(child);
         console.log("seperator");
       }
-    } else { //attempt to read folder contents
+    }
+
+    /*
+    else { //attempt to read folder contents
       if (child.children != undefined) {
         bookmarksArray.push(getAllBookmarks(element.children));
         console.log("folder");
       }
     }
-
-    /*
      * I eventually want to add support for reading the contents of
      * folders in the bookmarks toolbar.  However, that adds more
      * complexity to an already shaky function.  I will add support
