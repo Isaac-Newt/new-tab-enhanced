@@ -31,7 +31,7 @@ function onFulfilled(children) {
     let p = document.createElement('p');
     p.className = 'list-group-item';
     let a = document.createElement('a');
-    
+
     //filter out non-bookmark items, specifically seperators
     var bookmarksArray = [];
     var seperatorsArray = [];
@@ -43,11 +43,16 @@ function onFulfilled(children) {
         seperatorsArray.push(child);
         console.log("seperator");
       }
+    } else { //attempt to read folder contents
+      if (child.children != undefined) {
+        bookmarksArray.push(getAllBookmarks(element.children));
+        console.log("folder");
+      }
     }
-    
+
     /*
-     * I eventually want to add support for reading the contents of 
-     * folders in the bookmarks toolbar.  However, that adds more 
+     * I eventually want to add support for reading the contents of
+     * folders in the bookmarks toolbar.  However, that adds more
      * complexity to an already shaky function.  I will add support
      * for folders when I begin using a seperate folder specifically
      * for this addon, rather than the bookmarks toolbar.  So, expect
@@ -55,13 +60,13 @@ function onFulfilled(children) {
      *
      * ~Isaac
      */
-    
+
     //add bookmark info to sidebar items
     for (i = 0; i < bookmarksArray.length; i++) {
       a.href = bookmarksArray[i].url;
       a.innerText = bookmarksArray[i].title || bookmarksArray[i].url;
     }
-    
+
     //attach sidebar items to each other
     p.appendChild(a);
     divbm.appendChild(p);
