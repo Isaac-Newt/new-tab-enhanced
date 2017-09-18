@@ -1,134 +1,70 @@
-//Top Sites
-browser.topSites.get()
-  .then((sites) => {
-    var div = document.getElementById('topsites');
+function onAnchorClick(event) {
+  chrome.tabs.create({ url: event.srcElement.href });
+  return false;
+}
 
-    if (!sites.length) {
-      div.innerText = 'No sites returned from the topSites API.';
-      return;
-    }
+function buildSiteList(mostVisitedURLs) {
+  var popupDiv = document.getElementById('topsites');
+  var ul = popupDiv.appendChild(document.createElement('ul'));
+  ul.className = 'list-group';
 
-    sites.splice(12);
+  mostVisitedURLs.splice(12);
 
-    for (let site of sites) {
-      let p = document.createElement('p');
-      p.className = 'list-group-item';
-      let a = document.createElement('a');
-      a.href = site.url;
-      a.innerText = site.title || site.url;
-      p.appendChild(a);
-      div.appendChild(p);
-    }
-  });
-
-document.getElementById('topsites').style.marginLeft = -100 + "%";
-
-//bookmarks
-function onFulfilled(children) {
-  var divbm = document.getElementById('bookmarks');
-
-  for (child of children) {
-    let p = document.createElement('p');
-    p.className = 'list-group-item';
-    let a = document.createElement('a');
-
-    //filter out non-bookmark items, specifically seperators
-    var bookmarksArray = [];
-    var seperatorsArray = [];
-    if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
-      bookmarksArray.push(child);
-    } else {
-      if (child.type = "seperator") {
-        seperatorsArray.push(child);
-      }
-    }
-
-    /*
-    else { //attempt to read folder contents
-      if (child.children != undefined) {
-        bookmarksArray.push(getAllBookmarks(element.children));
-        console.log("folder");
-      }
-    }
-     * I eventually want to add support for reading the contents of
-     * folders in the bookmarks toolbar.  However, that adds more
-     * complexity to an already shaky function.  I will add support
-     * for folders when I begin using a seperate folder specifically
-     * for this addon, rather than the bookmarks toolbar.  So, expect
-     * improvements sometime around the 2.0 release.
-     *
-     * ~Isaac
-     */
-
-    //add bookmark info to sidebar items
-    for (i = 0; i < bookmarksArray.length; i++) {
-      a.href = bookmarksArray[i].url;
-      a.innerText = bookmarksArray[i].title || bookmarksArray[i].url;
-    }
-
-    //attach sidebar items to each other
-    p.appendChild(a);
-    divbm.appendChild(p);
+  for (var i = 0; i < mostVisitedURLs.length; i++) {
+    var li = ul.appendChild(document.createElement('li'));
+    li.className = 'list-group-item';
+    var a = li.appendChild(document.createElement('a'));
+    a.href = mostVisitedURLs[i].url;
+    a.appendChild(document.createTextNode(mostVisitedURLs[i].title));
+    a.addEventListener('click', onAnchorClick);
   }
 }
 
-function onRejected(error) {
-  console.log(`An error: ${error}`);
-}
+chrome.topSites.get(buildSiteList);
 
-var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
-gettingChildren.then(onFulfilled, onRejected);
+document.getElementById('topsites').style.marginLeft = -100 + "%";
 
-document.getElementById('bookmarks').style.marginLeft = -100 + "%";
+/*
+ * A bookmarks sidebar similar to that of the Top Sites above will
+ * or should go here.  However, maintaining Chromium code for an
+ * extension that won't be published is rather pointless, so don't
+ * expect this to be added quickly.
+ * 
+ * Sorry,
+ * ~Isaac
+ */
 
 //notes
 var VERSION = 1;
 
-window.onload = () => {
-  var $textarea = document.querySelector('#note-content');
+(function() {
 
-  var initNote = () => {
-    browser.storage.sync.get().then( data => {
-
-      if (data.version === undefined) {
-        data = {
-          version: VERSION,
-          content: ''
-        };
-        browser.storage.sync.set(data);
-      }
-
-      $textarea.value = data.content;
-    });
-  };
-  initNote();
-
-  // when user writing
-  $textarea.addEventListener('keyup', event => {
-    browser.storage.sync.set({ content: event.target.value });
-  });
-
-  // when actived window or tab changed
-  browser.tabs.onActivated.addListener(initNote);
-  browser.windows.onFocusChanged.addListener(initNote);
-};
-
-//Weather, Theme
-function onError(error) {
-  console.log(`Error: ${error}`);
-}
-
-function onGot(item) {
-  var color = "";
-  if (item.color) {
-    place = item.color;
+  function _makeDelayed() {
+    var timer = 0;
+    return function(callback, ms) {
+      clearTimeout(timer);
+      timer = setTimeout(callback, ms);
+    };
   }
-  var weather = document.getElementById('weather');
-  weather.href += place;
-}
 
-var getting = browser.storage.local.get("color");
-getting.then(onGot, onError);
+  function bindNoteHandlers() {
+    var elem = document.getElementById('note-content'),
+        saveHandler = _makeDelayed();
+    function save() {
+      chrome.storage.sync.set({'noteText': elem.value});
+    }
+    // Throttle save so that it only occurs after 1 second without a keypress.
+    elem.addEventListener('keypress', function() {
+      saveHandler(save, 1000);
+    });
+    elem.addEventListener('blur', save);
+    chrome.storage.sync.get('noteText', function(data) {
+      elem.value = data.noteText ? data.noteText : '';
+    });
+  }
+
+  bindNoteHandlers();
+})();
 
 /* Toggles
  * The below functions are used to toggle the various

@@ -1,15 +1,15 @@
 # New Tab Enhanced
 
-### An enhanced new tab experience, for Firefox 54+ (and Chrome)
+### An enhanced new tab experience, for Vivaldi/Chromium/Chrome
 
-This addon will transform Firefox's new tab page into a notebook, links to weather and search, and a listing of top sites.
+### Note: This is the Chromium branch of this addon, please see the master branch for Firefox code.
+
+This addon will transform Chrome/Vivaldi/Chromium's new tab page into a notebook, links to weather and search, and a listing of top sites.
 
 Notes:
 ---
 
- - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
-
-  - Bookmarks will be the same as those In the bookmarks toolbar.  
+ - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.   
 
  - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky](https://darksky.net) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
 
