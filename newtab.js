@@ -21,11 +21,14 @@ browser.topSites.get()
     }
   });
 
+//default to hiding the topsites sidebar
 document.getElementById('topsites').style.marginLeft = -100 + "%";
 
 //bookmarks
 function onFulfilled(children) {
   var divbm = document.getElementById('bookmarks');
+
+//for(var i=0; i<children.length; i++) {}
 
   for (child of children) {
     let p = document.createElement('p');
@@ -72,13 +75,16 @@ function onFulfilled(children) {
   }
 }
 
+//run when things are broken
 function onRejected(error) {
   console.log(`An error: ${error}`);
 }
 
+//get bookmarknodeobjects in the bookmarks toolbar folder, promise them
 var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
 gettingChildren.then(onFulfilled, onRejected);
 
+//default to hiding the bookmarks sidebar
 document.getElementById('bookmarks').style.marginLeft = -100 + "%";
 
 //notes
@@ -103,17 +109,17 @@ window.onload = () => {
   };
   initNote();
 
-  // when user writing
+  //when user writing
   $textarea.addEventListener('keyup', event => {
     browser.storage.sync.set({ content: event.target.value });
   });
 
-  // when actived window or tab changed
+  //when actived window or tab changed
   browser.tabs.onActivated.addListener(initNote);
   browser.windows.onFocusChanged.addListener(initNote);
 };
 
-//Weather, Theme
+//Set location for Weather
 function onError(error) {
   console.log(`Error: ${error}`);
 }
