@@ -9,7 +9,7 @@ Notes:
 
  - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
 
-  - Bookmarks will be the same as those In the bookmarks toolbar.  
+  - Bookmarks will be the same as those In the bookmarks toolbar. (may use dedicated folder with the 2.0 release) 
 
  - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky](https://darksky.net) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
 
