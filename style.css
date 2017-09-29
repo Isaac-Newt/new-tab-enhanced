@@ -1,9 +1,9 @@
 :root {
   --main-bg-color: #f9f9fa; /*#f9f9fa, #424F5A*/
-  --links-bg-color: #4A4A4F; /*#4A4A4F, #1B2126*/
+  --links-bg-color: rgba(12, 12, 13, .8); /*#4A4A4F, #4A4A4F, #1B2126*/
   --popup-bg-color: rgba(12, 12, 13, .8); /*rgba(12, 12, 13, .8), #1B2126*/
   --highlight-color: #0a84ff;
-  --notes-bg-color: #EADFC0; /*#EADFC0, #273038*/
+  --notes-bg-color: rgba(232, 223, 192, 0.75);; /*#EADFC0, #273038*/
   --notes-text: #000; /*#000, #fff*/
 }
 
@@ -16,7 +16,9 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
-  background: var(--main-bg-color);
+  /*background: var(--main-bg-color);*/
+  background-image: url(background.jpg);
+  background-size: cover;
 }
 
 #wrapper {
