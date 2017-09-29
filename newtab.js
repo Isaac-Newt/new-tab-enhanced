@@ -46,21 +46,22 @@ function onFulfilled(children) {
     //filter out non-bookmark items, specifically seperators
     var bookmarksArray = [];
     var seperatorsArray = [];
-    if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
+    /*var foldersArray = [];*/
+    if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator") && (child.type != "folder")) {
       bookmarksArray.push(child);
-    } else {
-      if (child.type = "seperator") {
+    } else if (child.type = "seperator") {
         seperatorsArray.push(child);
-      }
+    } else if (child.children != undefined) {
+        foldersArray.push(child);
+        console.log("folder");
+        if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
+          bookmarksArray.push(child);
+        } else if (child.type = "seperator") {
+            seperatorsArray.push(child);
+        }
     }
 
     /*
-    else { //attempt to read folder contents
-      if (child.children != undefined) {
-        bookmarksArray.push(getAllBookmarks(element.children));
-        console.log("folder");
-      }
-    }
      * I eventually want to add support for reading the contents of
      * folders in the bookmarks toolbar.  However, that adds more
      * complexity to an already shaky function.  I will add support
