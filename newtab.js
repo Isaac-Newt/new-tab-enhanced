@@ -54,10 +54,11 @@ function onFulfilled(children) {
     } else if (child.children != undefined) {
         foldersArray.push(child);
         console.log("folder");
-        if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator")) {
-          bookmarksArray.push(child);
-        } else if (child.type = "seperator") {
-            seperatorsArray.push(child);
+        for (i = 0; i < foldersArray.length; i++)
+          if ((foldersArray[i].url != undefined) && (foldersArray[i].url.startsWith("http")) && (foldersArray[i].type != "seperator")) {
+            bookmarksArray.push(foldersArray[i]);
+          } else if (foldersArray[i].type = "seperator") {
+              seperatorsArray.push(foldersArray[i])
         }
     }
 
