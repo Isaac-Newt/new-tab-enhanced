@@ -1,3 +1,8 @@
+document.getElementById('theme').onChange = function() {
+  var theme = document.getElementById('theme').value;
+  console.log(theme);
+}
+
 //Top Sites
 browser.topSites.get()
   .then((sites) => {
@@ -60,7 +65,7 @@ function onFulfilled(children) {
           } else if (foldersArray[i].type = "seperator") {
               seperatorsArray.push(foldersArray[i])
           }
-        }   
+        }
       }
 
     /*
@@ -136,13 +141,23 @@ function onError(error) {
 }
 
 function onGot(item) {
+  //weather
   var color = "";
   if (item.color) {
     place = item.color;
   }
   var weather = document.getElementById('weather');
   weather.href += place;
+
+  //theme
+  if (/*theme is default*/) {
+    /*set default colors*/
+  } else if (/*theme is dark*/) {
+    /*set dark colors*/
+  } else if (/*theme is image*/) {
+    /*set image colors & background*/
+  }
 }
 
-var getting = browser.storage.local.get("color");
+var getting = browser.storage.local.get(["color", "theme"]);
 getting.then(onGot, onError);
