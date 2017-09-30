@@ -150,12 +150,14 @@ function onGot(item) {
   weather.href += place;
 
   //theme
-  if (/*theme is default*/) {
-    /*set default colors*/
-  } else if (/*theme is dark*/) {
-    /*set dark colors*/
-  } else if (/*theme is image*/) {
-    /*set image colors & background*/
+  if (item.theme = "Default") {
+    console.log("Default");
+  } else if (item.theme = "Dark") {
+    console.log("Dark");
+  } else if (item.theme = "Image") {
+    console.log("Image");
+  } else {
+    console.log("Default-weird");
   }
 }
 
