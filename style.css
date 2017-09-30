@@ -81,7 +81,7 @@ a:hover {
   color: white;
   font-family: "Fira Sans";
   font-size: 32px;
-  border-bottom: 3px rgba(255, 255, 255, 0.25) solid;
+  border-bottom: 3px transparent solid;
 }
 
 .toggle:hover {
