@@ -1,4 +1,8 @@
-# New Tab Enhanced
+# Theme Changing branch - New Tab Enhanced
+
+## Tests the possibility of changing themes, and using image(s) as the background.  
+
+---
 
 ### An enhanced new tab experience, for Firefox 54+
 
@@ -9,7 +13,7 @@ Notes:
 
  - Top sites will be the same as those loaded in about:newtab.  Pinned sites on that page will be respectively pinned on this extension's page.  
 
-  - Bookmarks will be the same as those In the bookmarks toolbar. (may use dedicated folder with the 2.0 release) 
+  - Bookmarks will be the same as those In the bookmarks toolbar. (may use dedicated folder with the 2.0 release)
 
  - Weather links to DuckDuckGo's Weather Instant Answer feature, which uses [Dark Sky](https://darksky.net) as its source. It should show local weather based on your IP address, but location is configurable through the options page.
 
