@@ -1,10 +1,15 @@
 :root {
   --main-bg-color: #f9f9fa; /*#f9f9fa, #424F5A*/
-  --links-bg-color: rgba(12, 12, 13, .8); /*#4A4A4F, #4A4A4F, #1B2126*/
-  --popup-bg-color: rgba(12, 12, 13, .8); /*rgba(12, 12, 13, .8), #1B2126*/
-  --highlight-color: #0a84ff;
-  --notes-bg-color: rgba(232, 223, 192, 0.75);; /*#EADFC0, #273038*/
+}
+
+:root {
+  --secondary-bg-color: rgba(12, 12, 13, .8); /*rgba(12, 12, 13, .8), #1B2126*/
+  --notes-bg-color: rgba(232, 223, 192, 0.75); /*#EADFC0, #273038*/
   --notes-text: #000; /*#000, #fff*/
+}
+
+:root {
+  --highlight-color: #0a84ff;
 }
 
 @@font-face {
@@ -52,7 +57,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: var(--links-bg-color);
+  background: var(--secondary-bg-color);
   box-shadow: 0 0 .4rem rgba(0,0,0,0.35);
 }
 
@@ -90,7 +95,7 @@ a:hover {
 
 #topsites {
   border-top: 2px solid var(--highlight-color);
-  background: var(--popup-bg-color);
+  background: var(--secondary-bg-color);
   box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
   flex-basis: 0;
   transition: all 0s ease-out;
@@ -99,7 +104,7 @@ a:hover {
 
 #bookmarks {
   border-top: 2px solid var(--highlight-color);
-  background: var(--popup-bg-color);
+  background: var(--secondary-bg-color);
   box-shadow: 0 .4rem .4rem rgba(0,0,0,0.35);
   flex-basis: 0;
   transition: all 0s ease-out;
@@ -124,7 +129,7 @@ a:hover {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  background: var(--popup-bg-color);
+  background: var(--secondary-bg-color);
   padding: 0;
   border-top: none;
   position: absolute;
@@ -177,7 +182,7 @@ a:hover {
 #weather-div {
   display: flex;
   justify-content: center;
-  background: var(--popup-bg-color);
+  background: var(--secondary-bg-color);
   padding: 0px;
   border-top: none;
   position: absolute;

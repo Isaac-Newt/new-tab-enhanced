@@ -145,14 +145,30 @@ function onGot(item) {
   weather.href += place;
 
   //theme
-  if (item.theme = "Default") {
+  console.log("theme = " + item.theme);
+
+  if (item.theme == "Default") {
     console.log("Default");
-    //start using CSSOM below to modify CSS rules
-    //(either remove/add or try replacing/modifying directly)
-  } else if (item.theme = "Dark") {
+  } else if (item.theme == "Dark") {
     console.log("Dark");
-  } else if (item.theme = "Image") {
+    document.styleSheets[0].deleteRule(0);
+    document.styleSheets[0].deleteRule(0);
+    document.styleSheets[0].insertRule(
+      ":root {" +
+        "--notes-bg-color: #273038;" +
+        "--main-bg-color: #424F5A;" +
+        "--notes-text: #fff;" +
+        "--secondary-bg-color: #1B2126;" +
+      "}"
+    ,0);
+  } else if (item.theme == "Image") {
     console.log("Image");
+    document.styleSheets[0].deleteRule(0);
+    document.styleSheets[0].insertRule(
+      ":root {" +
+        "--main-bg-color: url(background.jpg)" +
+      "}"
+    ,0);
   } else {
     console.log("Default-weird");
   }
