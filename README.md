@@ -1,8 +1,4 @@
-# Theme Changing branch - New Tab Enhanced
-
-## Tests the possibility of changing themes, and using image(s) as the background.  
-
----
+# New Tab Enhanced
 
 ### An enhanced new tab experience, for Firefox 54+
 
