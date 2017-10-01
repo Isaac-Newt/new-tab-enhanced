@@ -1,8 +1,3 @@
-document.getElementById('theme').onChange = function() {
-  var theme = document.getElementById('theme').value;
-  console.log(theme);
-}
-
 //Top Sites
 browser.topSites.get()
   .then((sites) => {
@@ -152,6 +147,8 @@ function onGot(item) {
   //theme
   if (item.theme = "Default") {
     console.log("Default");
+    //start using below to modify CSS rules
+    /*document.styleSheets[0].cssRules[0].style[0];*/
   } else if (item.theme = "Dark") {
     console.log("Dark");
   } else if (item.theme = "Image") {
