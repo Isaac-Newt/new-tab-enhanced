@@ -1,7 +1,8 @@
 //Weather
 function saveOptions(e) {
   e.preventDefault();
-  browser.storage.local.set({ //this is an object, values are ,-seperated
+  //this is an object, values are ,-seperated
+  browser.storage.local.set({
     color: document.querySelector("#color").value,
     theme: document.querySelector("#theme").value
   });
