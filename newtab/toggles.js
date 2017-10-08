@@ -110,14 +110,12 @@ function showSearch(event) {
   var button = document.getElementById('sbsubmit');
   var sidebar = document.getElementById('topsites');
   var width = document.getElementById('topsites').scrollWidth;
-  if(searchPopOver.style.maxHeight == "0px" || searchPopOver.style.maxHeight == null) {
-    if(sidebar.style.marginLeft == "0px") {
-      shrinkTopSites();
-      console.log("this is something that probably shouldn't happen");
-    }
-    growSearch();
-  } else {
+  if(searchPopOver.style.maxHeight == "60px") {
     shrinkSearch();
+  } else {
+    shrinkTopSites();
+    shrinkBookmarks();
+    growSearch();
   }
 }
 
