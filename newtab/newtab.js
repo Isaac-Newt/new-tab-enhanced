@@ -22,7 +22,7 @@ browser.topSites.get()
   });
 
 //default to hiding the topsites sidebar
-document.getElementById('topsites').style.marginLeft = -100 + "%";
+document.getElementById('topsites').style.marginLeft = -200 + "%";
 
 //bookmarks
 function onFulfilled(children) {
@@ -96,7 +96,7 @@ var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
 gettingChildren.then(onFulfilled, onRejected);
 
 //default to hiding the bookmarks sidebar
-document.getElementById('bookmarks').style.marginLeft = -100 + "%";
+document.getElementById('bookmarks').style.marginLeft = -200 + "%";
 
 //notes
 var VERSION = 1;
