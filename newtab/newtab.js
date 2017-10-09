@@ -130,7 +130,7 @@ window.onload = () => {
   browser.windows.onFocusChanged.addListener(initNote);
 };
 
-//Set location for Weather
+//Set location for Weather, theme
 function onError(error) {
   console.log(`Error: ${error}`);
 }
@@ -140,9 +140,9 @@ function onGot(item) {
   var color = "";
   if (item.color) {
     place = item.color;
+    var weather = document.getElementById('weather');
+    weather.href += place;
   }
-  var weather = document.getElementById('weather');
-  weather.href += place;
 
   //theme
   console.log("theme = " + item.theme);
