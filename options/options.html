@@ -5,14 +5,20 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <h3>Enter Zip Code or City</h3>
+    <h3>Settings:</h3>
     <form>
-      <input type="text" id="color" >
-      <select id="theme">
-        <option value="Default" selected>Default</option>
-        <option value="Dark">Dark</option>
-        <option value="Image">Image</option>
-      </select>
+      <div>
+        <input type="text" id="color">
+        <label for="color">Enter Zip Code or City</label>
+      </div>
+      <div>
+        <select id="theme">
+          <option value="Default" selected>Default</option>
+          <option value="Dark">Dark</option>
+          <option value="Image">Image</option>
+        </select>
+        <label for="theme">Choose A Theme</label>
+      </div>
       <button type="submit">Save</button>
     </form>
     <script src="./options.js"></script>
