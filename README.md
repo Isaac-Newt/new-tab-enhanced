@@ -18,22 +18,28 @@ Screenshots:
 ---
 
 ### Top Sites
-![Top Sites](images/sites.png)
+![Top Sites](images/topsites.png)
+
+### Bookmarks
+![Bookmarks](images/bookmarks.png)
 
 ### Search
 ![Search](images/search.png)
 
+Themes:
+---
+
+### Dark
+![Dark Theme](images/darktheme.png)
+
+### Image
+![Image Theme](images/imagetheme.png)
+
 ToDo:
 ---
-* [X] Implement Search as a dropdown searchbox
+* [X] Implement themes and theme chooser (light, dark, greyscale, colorful)
 
-* [ ] Implement themes and theme chooser (light, dark, greyscale, colorful)
-
-* [X] Custom location for weather (esp. for VPN users)
-
-* [X] Add settings page
-
-* [ ] Improve settings page
+* [ ] Option to choose image to be used as background
 
 
 Credits
