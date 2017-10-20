@@ -33,7 +33,7 @@ Themes:
 ![Dark Theme](images/darktheme.png)
 
 ### Image
-![Image Theme](images/imagetheme)
+![Image Theme](images/imagetheme.png)
 
 ToDo:
 ---
