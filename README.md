@@ -26,6 +26,15 @@ Screenshots:
 ### Search
 ![Search](images/search.png)
 
+Themes:
+---
+
+### Dark
+![Dark Theme](images/darktheme.png)
+
+### Image
+![Image Theme](images/imagetheme)
+
 ToDo:
 ---
 * [X] Implement themes and theme chooser (light, dark, greyscale, colorful)
