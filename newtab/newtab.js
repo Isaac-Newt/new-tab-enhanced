@@ -174,5 +174,5 @@ function onGot(item) {
   }
 }
 
-var getting = browser.storage.local.get(["color", "theme"]);
+var getting = browser.storage.local.get(["color", "theme", "image"]);
 getting.then(onGot, onError);

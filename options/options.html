@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
   </head>
+  <style>
+    body * { margin: 4px; }
+  </style>
   <body>
     <h3>Settings:</h3>
     <form>
@@ -18,6 +21,13 @@
           <option value="Image">Image</option>
         </select>
         <label for="theme">Choose A Theme</label>
+      </div>
+      <div id="image-locate">
+        <input type="checkbox" id="image-location">
+        <label for="image-location">Use custom background</label>
+      </div>
+      <div id="local-select">
+        <input id="image" type="file">
       </div>
       <button type="submit">Save</button>
     </form>
