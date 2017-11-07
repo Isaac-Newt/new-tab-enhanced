@@ -41,6 +41,5 @@ function showImageOptions() {
 document.addEventListener("DOMContentLoaded", restoreOptions);
 //runs saveOptions when submit button is clicked
 document.querySelector("form").addEventListener("submit", saveOptions);
-
-var themeCheck = document.getElementById("image-location");
-themeCheck.addEventListener("changed", showImageOptions);
+//run showImageOptions when checkbox checked
+document.getElementById("image-location").addEventListener("checked", showImageOptions);
