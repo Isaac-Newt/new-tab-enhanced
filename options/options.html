@@ -6,34 +6,41 @@
   </head>
   <style>
     body * { margin: 4px; }
+    h3 { margin-top: 16px; }
+    label { font-size: 14px; font-weight: bold; }
+    div { border: 1px solid rgba(0,0,0,0.2); padding: 4px; }
+    button { font-size: 18px; font-weight: bold; }
   </style>
   <body>
-    <h3>Settings:</h3>
+    <h2>Settings:</h2>
     <form>
       <div>
-        <input type="text" id="color">
         <label for="color">Enter Zip Code or City</label>
+        <input type="text" id="color">
       </div>
       <div>
+        <label for="theme">Choose A Theme</label>
         <select id="theme">
           <option value="Default" selected>Default</option>
           <option value="Dark">Dark</option>
           <option value="Image">Image</option>
         </select>
-        <label for="theme">Choose A Theme</label>
       </div>
       <div id="image-locate">
+        <label for="image-location">Use custom background?</label>
         <input type="checkbox" id="image-location">
-        <label for="image-location">Use custom background</label>
       </div>
+      <h3></h3>
+      <div id="local-select">
+        <label for="image">Pick a Background Image</label>
+        <input id="image" type="file">
+      </div>
+      <h3>Items to appear in top bar:</h3>
       <div id="">
         <input type="checkbox" id="bookmarks">
         <input type="checkbox" id="topsites">
         <input type="checkbox" id="weather">
         <input type="checkbox" id="search">
-      </div>
-      <div id="local-select">
-        <input id="image" type="file">
       </div>
       <button type="submit">Save</button>
     </form>

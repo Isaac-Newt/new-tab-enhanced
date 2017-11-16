@@ -11,13 +11,32 @@ function saveOptions(e) {
 
 function displayImageSettings() {
   // Hide image-specific settings unless needed
-  if (document.querySelector("#theme").value != "Image") {
+  if (document.querySelector("#theme").value == "Image") {
+    var div0 = document.getElementById("image-locate");
+    div0.style.display = "block";
+    var div1 = document.getElementById("local-select");
+    div1.style.display = "block";
+  } else if (document.querySelector("#theme").value != "Image") {
     var div0 = document.getElementById("image-locate");
     div0.style.display = "none";
     var div1 = document.getElementById("local-select");
     div1.style.display = "none";
   }
 }
+
+// Show image-specific settings when "image" selected
+document.getElementById("theme").addEventListener("change", displayImageSettings);
+
+function displayBackgroundPicker() {
+  if (document.querySelector("#image-location").checked) {
+    console.log("show");
+  } else {
+    console.log("hide");
+  }
+}
+
+// Show background picker when checkbox is checked
+document.getElementById("image-location").addEventListener("change", displayBackgroundPicker);
 
 function restoreOptions() {
 
@@ -37,13 +56,6 @@ function restoreOptions() {
   var getting = browser.storage.local.get(["color", "theme"]);
   getting.then(setCurrentChoice, onError);
 }
-
-function showImageOptions() {
-  console.log("Yay!");
-}
-
-//run showImageOptions when checkbox checked
-document.getElementById("image-location").addEventListener("change", showImageOptions);
 
 //runs restoreOptions when page is loaded
 document.addEventListener("DOMContentLoaded", restoreOptions);
