@@ -41,6 +41,7 @@ ToDo:
 
 * [ ] Option to choose image to be used as background
 
+* [ ] Choose which links to display in top bar
 
 Credits
 ---
