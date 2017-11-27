@@ -10,6 +10,8 @@
     label { font-size: 14px; font-weight: bold; }
     div { border: 1px solid rgba(0,0,0,0.2); padding: 4px; }
     button { font-size: 18px; font-weight: bold; }
+    #chosen-items { display: flex; flex-direction: column; }
+    div div { border: none; }
   </style>
   <body>
     <h2>Settings:</h2>
@@ -26,21 +28,28 @@
           <option value="Image">Image</option>
         </select>
       </div>
-      <div id="image-locate">
-        <label for="image-location">Use custom background?</label>
-        <input type="checkbox" id="image-location">
-      </div>
-      <h3></h3>
       <div id="local-select">
         <label for="image">Pick a Background Image</label>
         <input id="image" type="file">
       </div>
       <h3>Items to appear in top bar:</h3>
-      <div id="">
-        <input type="checkbox" id="bookmarks">
-        <input type="checkbox" id="topsites">
-        <input type="checkbox" id="weather">
-        <input type="checkbox" id="search">
+      <div id="chosen-items">
+        <div>
+          <input type="checkbox" id="bookmarks">
+          <label for="bookmarks">Bookmarks</label>
+        </div>
+        <div>
+          <input type="checkbox" id="topsites">
+          <label for="topsites">Top Sites</label>
+        </div>
+        <div>
+          <input type="checkbox" id="weather">
+          <label for="weather">Weather</label>
+        </div>
+        <div>
+          <input type="checkbox" id="search">
+          <label for="search">Search</label>
+        </div>
       </div>
       <button type="submit">Save</button>
     </form>
