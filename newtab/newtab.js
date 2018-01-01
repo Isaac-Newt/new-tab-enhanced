@@ -1,3 +1,7 @@
+let ui = new UI();
+
+console.log(ui.toggles.growSearch);
+
 //Top Sites
 browser.topSites.get()
   .then((sites) => {
@@ -25,11 +29,12 @@ browser.topSites.get()
 document.getElementById('topsites').style.marginLeft = -200 + "%";
 
 //bookmarks
-function onFulfilled(children) {
+function onFulfilled(tree) {
   var divbm = document.getElementById('bookmarks');
 
+  var subTree = tree[0].children;
   //If there are no bookmarks in the folder (toolbar)
-  if (!children.length) {
+  if (!subTree.length) {
     let p = document.createElement('p');
     p.id = 'emptyText';
     p.innerText = 'Bookmarks in the Bookmarks Toolbar will be shown here.';
@@ -37,53 +42,44 @@ function onFulfilled(children) {
     return;
   }
 
-  /*for(var i=0; i<children.length; i++) {}*/
-  for (child of children) {
-    let p = document.createElement('p');
-    p.className = 'list-group-item';
-    let a = document.createElement('a');
+  // console.log(subTree);
 
-    //filter out non-bookmark items, specifically seperators
-    var bookmarksArray = [];
-    var seperatorsArray = [];
-    /*var foldersArray = [];*/
-    if ((child.url != undefined) && (child.url.startsWith("http")) && (child.type != "seperator") && (child.type != "folder")) {
-      bookmarksArray.push(child);
-    } else if (child.type = "seperator") {
-        seperatorsArray.push(child);
-    } else if (child.children != undefined) {
-        foldersArray.push(child);
-        console.log("folder");
-        for (i = 0; i < foldersArray.length; i++) {
-          if ((foldersArray[i].url != undefined) && (foldersArray[i].url.startsWith("http")) && (foldersArray[i].type != "seperator")) {
-            bookmarksArray.push(foldersArray[i]);
-          } else if (foldersArray[i].type = "seperator") {
-              seperatorsArray.push(foldersArray[i])
-          }
-        }
-      }
-
-    /*
-     * I eventually want to add support for reading the contents of
-     * folders in the bookmarks toolbar.  However, that adds more
-     * complexity to an already shaky function.  I will add support
-     * for folders when I begin using a seperate folder specifically
-     * for this addon, rather than the bookmarks toolbar.  So, expect
-     * improvements sometime around the 2.0 release.
-     *
-     * ~Isaac
-     */
-
-    //add bookmark info to sidebar items
-    for (i = 0; i < bookmarksArray.length; i++) {
-      a.href = bookmarksArray[i].url;
-      a.innerText = bookmarksArray[i].title || bookmarksArray[i].url;
+  foldersArray = subTree.filter(bm => {
+    if ("children" in bm) {
+      return bm;
     }
+  })
 
-    //attach sidebar items to each other
-    p.appendChild(a);
-    divbm.appendChild(p);
-  }
+  bookmarksArray = subTree.filter(bm => {
+    if (!bm.hasOwnProperty("children")) {
+      return bm;
+    }
+  })
+
+  separatorArray = subTree.filter(bm => {
+    if (!bm.hasOwnProperty("children") && bm.type === "separator") {
+      return bm;
+    }
+  })
+
+  foldersArray.map((f, pos) => {
+    if (pos == 0) {
+      divbm.appendChild(ui.renderTitle("Folders"))
+    }
+    divbm.appendChild(ui.renderFolder(f));
+  })
+
+  bookmarksArray.map((bm, pos) => {
+    if (pos == 0) {
+      divbm.appendChild(ui.renderTitle("Bookmarks"))
+    }
+    divbm.appendChild(ui.renderBookmark(bm));
+  })
+
+  // console.log(foldersArray)
+  // console.log(bookmarksArray)
+  // console.log(separatorArray)
+
 }
 
 //run when things are broken
@@ -92,8 +88,8 @@ function onRejected(error) {
 }
 
 //get bookmarknodeobjects in the bookmarks toolbar folder, promise them
-var gettingChildren = browser.bookmarks.getChildren("toolbar_____");
-gettingChildren.then(onFulfilled, onRejected);
+var toolbar = browser.bookmarks.getSubTree("toolbar_____");
+toolbar.then(onFulfilled, onRejected);
 
 //default to hiding the bookmarks sidebar
 document.getElementById('bookmarks').style.marginLeft = -200 + "%";
@@ -105,7 +101,7 @@ window.onload = () => {
   var $textarea = document.querySelector('#note-content');
 
   var initNote = () => {
-    browser.storage.sync.get().then( data => {
+    browser.storage.sync.get().then(data => {
 
       if (data.version === undefined) {
         data = {
@@ -155,20 +151,20 @@ function onGot(item) {
     document.styleSheets[0].deleteRule(0);
     document.styleSheets[0].insertRule(
       ":root {" +
-        "--notes-bg-color: #273038;" +
-        "--main-bg-color: #424F5A;" +
-        "--notes-text: #fff;" +
-        "--secondary-bg-color: #1B2126;" +
+      "--notes-bg-color: #273038;" +
+      "--main-bg-color: #424F5A;" +
+      "--notes-text: #fff;" +
+      "--secondary-bg-color: #1B2126;" +
       "}"
-    ,0);
+      , 0);
   } else if (item.theme == "Image") {
     console.log("Image");
     document.styleSheets[0].deleteRule(0);
     document.styleSheets[0].insertRule(
       ":root {" +
-        "--main-bg-color: url(background.jpg)" +
+      "--main-bg-color: url(background.jpg)" +
       "}"
-    ,0);
+      , 0);
   } else {
     console.log("Default-weird");
   }

@@ -12,7 +12,7 @@
   --highlight-color: #0a84ff;
 }
 
-@@font-face {
+@font-face {
   font-family: "Fira Sans";
   src: url("/fonts/Fira_Sans/FiraSans-Regular.ttf");
 }
